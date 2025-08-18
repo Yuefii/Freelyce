@@ -23,6 +23,7 @@ func main() {
 			auth.Post("/sign-in", handlers.SignIn)
 			auth.Get("/profile", middleware.Protected(), handlers.Profile)
 			auth.Patch("/profile", middleware.Protected(), handlers.UpdateProfile)
+			auth.Patch("/change-password", middleware.Protected(), handlers.ChangePassword)
 			auth.Delete("/profile", middleware.Protected(), handlers.DeleteAccount)
 		}
 	}

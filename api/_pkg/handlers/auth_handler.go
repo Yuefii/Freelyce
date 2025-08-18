@@ -188,6 +188,63 @@ func UpdateProfile(ctx *fiber.Ctx) error {
 	})
 }
 
+func ChangePassword(ctx *fiber.Ctx) error {
+	userID := ctx.Locals("user_id")
+
+	var req dto.ChangePasswordRequest
+
+	if err := ctx.BodyParser(&req); err != nil {
+		helpers.LogError("change_password | parse request body | failed", err)
+		return ctx.Status(fiber.StatusBadRequest).JSON(fiber.Map{
+			"error": "invalid request body",
+		})
+	}
+
+	if err := helpers.Validate.Struct(req); err != nil {
+		validationErrors := helpers.FormatValidationError(err)
+		helpers.LogError("change_password | validation | failed", err)
+		return ctx.Status(fiber.StatusBadRequest).JSON(fiber.Map{
+			"errors": validationErrors,
+		})
+	}
+
+	var user models.User
+
+	if err := config.DB.First(&user, userID).Error; err != nil {
+		helpers.LogError("change_password | find user | not found", err)
+		return ctx.Status(fiber.StatusNotFound).JSON(fiber.Map{
+			"error": "user not found",
+		})
+	}
+
+	if err := bcrypt.CompareHashAndPassword([]byte(user.Password), []byte(req.OldPassword)); err != nil {
+		helpers.LogInfo("change_password | wrong old password | email=" + user.Email)
+		return ctx.Status(fiber.StatusUnauthorized).JSON(fiber.Map{
+			"error": "old password is incorrect",
+		})
+	}
+
+	hashedPassword, err := bcrypt.GenerateFromPassword([]byte(req.NewPassword), 14)
+	if err != nil {
+		helpers.LogError("change_password | hash new password | failed", err)
+		return ctx.Status(fiber.StatusInternalServerError).JSON(fiber.Map{
+			"error": "internal server error",
+		})
+	}
+
+	if err := config.DB.Model(&user).Update("password", string(hashedPassword)).Error; err != nil {
+		helpers.LogError("change_password | update password in DB | failed", err)
+		return ctx.Status(fiber.StatusInternalServerError).JSON(fiber.Map{
+			"error": "internal server error",
+		})
+	}
+
+	helpers.LogInfo("change_password | success | email=" + user.Email)
+	return ctx.JSON(fiber.Map{
+		"message": "password updated successfully",
+	})
+}
+
 func DeleteAccount(ctx *fiber.Ctx) error {
 	userID := ctx.Locals("user_id")
 

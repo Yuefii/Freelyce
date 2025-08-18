@@ -18,3 +18,8 @@ type ProfileUpdateRequest struct {
 	BusinessAddress string `json:"business_address"`
 	Phone           string `json:"phone"`
 }
+
+type ChangePasswordRequest struct {
+	OldPassword string `json:"old_password" validate:"required"`
+	NewPassword string `json:"new_password" validate:"required,min=6"`
+}
