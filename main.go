@@ -1,23 +1,31 @@
-package api
+package main
 
 import (
-	"freelyce/api/_pkg/config"
-	"freelyce/api/_pkg/handlers"
-	"freelyce/api/_pkg/middleware"
-	"net/http"
+	"freelyce/pkg/config"
+	"freelyce/pkg/handlers"
+	"freelyce/pkg/middleware"
+	"log"
 	"os"
 
 	"github.com/gofiber/fiber/v2"
-	"github.com/gofiber/fiber/v2/middleware/adaptor"
+	"github.com/gofiber/fiber/v2/middleware/cors"
 )
 
-func Handler(w http.ResponseWriter, r *http.Request) {
+func main() {
 	app := fiber.New()
 
 	allowOrigins := os.Getenv("ALLOW_ORIGINS")
 	if allowOrigins == "" {
 		allowOrigins = "*"
 	}
+
+	app.Use(cors.New(cors.Config{
+		AllowOrigins:     allowOrigins,
+		AllowMethods:     "GET,POST,PUT,PATCH,DELETE,OPTIONS",
+		AllowHeaders:     "Origin, Content-Type, Accept, Authorization",
+		ExposeHeaders:    "Content-Length",
+		AllowCredentials: false,
+	}))
 
 	config.ConnectDB()
 
@@ -34,5 +42,10 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 		}
 	}
 
-	adaptor.FiberApp(app).ServeHTTP(w, r)
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8080"
+	}
+
+	log.Fatal(app.Listen(":" + port))
 }

@@ -2,7 +2,7 @@ package config
 
 import (
 	"fmt"
-	"freelyce/api/_pkg/models"
+	"freelyce/pkg/models"
 	"log"
 	"os"
 

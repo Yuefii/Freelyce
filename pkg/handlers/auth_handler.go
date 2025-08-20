@@ -1,10 +1,10 @@
 package handlers
 
 import (
-	"freelyce/api/_pkg/config"
-	"freelyce/api/_pkg/dto"
-	"freelyce/api/_pkg/helpers"
-	"freelyce/api/_pkg/models"
+	"freelyce/pkg/config"
+	"freelyce/pkg/dto"
+	"freelyce/pkg/helpers"
+	"freelyce/pkg/models"
 
 	"github.com/gofiber/fiber/v2"
 	"golang.org/x/crypto/bcrypt"
@@ -91,12 +91,14 @@ func SignIn(ctx *fiber.Ctx) error {
 
 	if err := config.DB.Where("email = ?", data.Email).First(&user).Error; err != nil {
 		helpers.LogInfo("signin | login attempt failed | email=" + user.Email)
-		return ctx.Status(fiber.StatusUnauthorized).JSON(fiber.Map{"error": "invalid email or password"})
+		return ctx.Status(fiber.StatusUnauthorized).
+			JSON(fiber.Map{"error": "invalid email or password"})
 	}
 
 	if err := bcrypt.CompareHashAndPassword([]byte(user.Password), []byte(data.Password)); err != nil {
 		helpers.LogInfo("signin | login attempt failed | email=" + user.Email)
-		return ctx.Status(fiber.StatusUnauthorized).JSON(fiber.Map{"error": "invalid email or password"})
+		return ctx.Status(fiber.StatusUnauthorized).
+			JSON(fiber.Map{"error": "invalid email or password"})
 	}
 
 	token, err := config.GenerateToken(user.ID)

@@ -1,8 +1,8 @@
 package middleware
 
 import (
-	"freelyce/api/_pkg/config"
-	"freelyce/api/_pkg/helpers"
+	"freelyce/pkg/config"
+	"freelyce/pkg/helpers"
 
 	"github.com/gofiber/fiber/v2"
 )
