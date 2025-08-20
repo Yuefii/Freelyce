@@ -30,7 +30,11 @@ func ConnectDB() {
 
 	log.SetPrefix("[INFO] ")
 	log.Println("database connected...")
-	db.AutoMigrate(&models.User{})
+	db.AutoMigrate(
+		&models.User{},
+		&models.Invoice{},
+		&models.InvoiceItem{},
+	)
 
 	DB = db
 }
