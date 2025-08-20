@@ -1,15 +1,12 @@
 import type { Metadata } from "next";
-import { Space_Grotesk } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 
-const spaceGrotesk = Space_Grotesk({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-space-grotesk",
-});
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Buat Invoice kamu dengan cepat, profesional dan berkualitas - Freelyce",
+  title:
+    "Buat Invoice kamu dengan cepat, profesional dan berkualitas - Freelyce",
   description: "Buat Invoice kamu dengan cepat, profesional dan berkualitas.",
   icons: {
     icon: [
@@ -43,12 +40,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${spaceGrotesk.variable} ${spaceGrotesk.className} antialiased`}
-      >
-        {children}
-      </body>
+    <html lang="id">
+      <body className={`${inter.className} antialiased`}>{children}</body>
     </html>
   );
 }
