@@ -1,11 +1,60 @@
+"use client";
+
 import { Button } from "@/packages/shadcn/ui/button";
 import { Checkbox } from "@/packages/shadcn/ui/checkbox";
 import { Input } from "@/packages/shadcn/ui/input";
 import { Label } from "@/packages/shadcn/ui/label";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
 export default function Page() {
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [success, setSuccess] = useState<string | null>(null);
+
+  const router = useRouter();
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setLoading(true);
+    setError(null);
+    setSuccess(null);
+
+    const formData = new FormData(e.currentTarget);
+    const name = formData.get("name") as string;
+    const email = formData.get("email") as string;
+    const password = formData.get("password") as string;
+    const confirm_password = formData.get("confirm_password") as string;
+
+    try {
+      const res = await fetch("/api/auth/sign-up", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name,
+          email,
+          password,
+          confirm_password,
+        }),
+      });
+
+      if (!res.ok) {
+        throw new Error("Failed to sign up user");
+      }
+
+      await res.json();
+      setSuccess("Account created successfully!");
+      router.push("/auth/sign-in");
+    } catch (err: any) {
+      setError(err.message || "Something went wrong");
+    } finally {
+      setLoading(false);
+    }
+  }
   return (
     <>
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
@@ -24,18 +73,18 @@ export default function Page() {
       </div>
       <div className="mt-8 mx-3 sm:mx-auto sm:w-full sm:max-w-md">
         <div className="bg-white py-8 px-4 shadow-lg border-2 border-black rounded-xl sm:px-10">
-          <form className="space-y-6">
+          <form className="space-y-6" onSubmit={handleSubmit}>
             <div>
               <Label
-                htmlFor="lastName"
+                htmlFor="name"
                 className="block text-sm font-medium text-gray-700"
               >
                 Full name
               </Label>
               <div className="mt-1">
                 <Input
-                  id="lastName"
-                  name="lastName"
+                  id="name"
+                  name="name"
                   type="text"
                   required
                   placeholder="Jhon Doe"
@@ -80,15 +129,15 @@ export default function Page() {
             </div>
             <div>
               <Label
-                htmlFor="confirmPassword"
+                htmlFor="confirm_password"
                 className="block text-sm font-medium text-gray-700"
               >
                 Confirm password
               </Label>
               <div className="mt-1">
                 <Input
-                  id="confirmPassword"
-                  name="confirmPassword"
+                  id="confirm_password"
+                  name="confirm_password"
                   type="password"
                   autoComplete="new-password"
                   required
@@ -113,8 +162,12 @@ export default function Page() {
             </div>
             <div>
               <Button type="submit" className="w-full cursor-pointer">
-                Create account
+                {loading ? "Loading..." : "Create account"}
               </Button>
+              {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
+              {success && (
+                <p className="text-green-500 text-sm mt-2">{success}</p>
+              )}
             </div>
             <div className="mt-6">
               <div className="relative">

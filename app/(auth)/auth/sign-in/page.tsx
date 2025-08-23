@@ -1,10 +1,54 @@
+"use client";
+
 import { Button } from "@/packages/shadcn/ui/button";
 import { Input } from "@/packages/shadcn/ui/input";
 import { Label } from "@/packages/shadcn/ui/label";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useSession } from "@/context/session-context";
 
 export default function Page() {
+  const router = useRouter();
+  const { refresh } = useSession();
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setLoading(true);
+    setError(null);
+
+    const formData = new FormData(e.currentTarget);
+    const email = formData.get("email") as string;
+    const password = formData.get("password") as string;
+
+    try {
+      const res = await fetch("/api/auth/sign-in", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, password }),
+      });
+
+      if (!res.ok) {
+        const errorData = await res.json();
+        throw new Error(errorData.error || "Failed to sign in");
+      }
+
+      const data = await res.json();
+      document.cookie = `token=${data.token}; path=/; secure; samesite=strict`;
+      await refresh();
+      router.push("/dashboard");
+    } catch (err: any) {
+      setError(err.message || "Something went wrong");
+    } finally {
+      setLoading(false);
+    }
+  }
+
   return (
     <>
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
@@ -20,7 +64,7 @@ export default function Page() {
       </div>
       <div className="mt-8 mx-3 sm:mx-auto sm:w-full sm:max-w-md">
         <div className="bg-white py-8 px-4 shadow-lg border-2 border-black rounded-xl sm:px-10">
-          <form className="space-y-6">
+          <form className="space-y-6" onSubmit={handleSubmit}>
             <div>
               <Label
                 htmlFor="email"
@@ -59,8 +103,9 @@ export default function Page() {
             </div>
             <div>
               <Button type="submit" className="w-full cursor-pointer">
-                Sign in
+                {loading ? "Loading..." : "Sign in"}
               </Button>
+              {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
             </div>
             <div className="mt-6">
               <div className="relative">
