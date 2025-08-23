@@ -1,5 +1,6 @@
 {
   "name": "freelyce",
+  "version": "1.0.0",
   "private": true,
   "prisma": {
     "schema": "packages/prisma/schema.prisma"
@@ -8,6 +9,7 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
+    "postinstall": "prisma generate",
     "lint": "next lint"
   },
   "dependencies": {
