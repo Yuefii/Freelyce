@@ -20,6 +20,7 @@ model User {
   password         String
   business_name    String?
   business_address String?
+  business_email   String?
   phone            String?
   logo             String?
 
