@@ -4,9 +4,9 @@ CREATE TABLE "public"."User" (
     "name" TEXT NOT NULL,
     "email" TEXT NOT NULL,
     "password" TEXT NOT NULL,
-    "business_name" TEXT NOT NULL,
-    "business_address" TEXT NOT NULL,
-    "phone" TEXT NOT NULL,
+    "business_name" TEXT,
+    "business_address" TEXT,
+    "phone" TEXT,
     "logo" TEXT,
 
     CONSTRAINT "User_pkey" PRIMARY KEY ("id")
@@ -18,9 +18,9 @@ CREATE TABLE "public"."Invoice" (
     "user_id" INTEGER NOT NULL,
     "invoice_number" TEXT NOT NULL,
     "client_name" TEXT NOT NULL,
-    "client_email" TEXT NOT NULL,
-    "client_phone" TEXT NOT NULL,
-    "client_address" TEXT NOT NULL,
+    "client_email" TEXT,
+    "client_phone" TEXT,
+    "client_address" TEXT,
     "date" TIMESTAMP(3) NOT NULL,
     "due_date" TIMESTAMP(3) NOT NULL,
     "currency" TEXT NOT NULL,
@@ -37,7 +37,7 @@ CREATE TABLE "public"."Invoice" (
 CREATE TABLE "public"."InvoiceItem" (
     "id" SERIAL NOT NULL,
     "invoice_id" INTEGER NOT NULL,
-    "description" TEXT NOT NULL,
+    "description" TEXT,
     "quantity" INTEGER NOT NULL,
     "unit_price" DECIMAL(65,30) NOT NULL,
 

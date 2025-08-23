@@ -18,9 +18,9 @@ model User {
   name             String
   email            String  @unique
   password         String
-  business_name    String
-  business_address String
-  phone            String
+  business_name    String?
+  business_address String?
+  phone            String?
   logo             String?
 
   invoices Invoice[]
@@ -31,9 +31,9 @@ model Invoice {
   user_id        Int
   invoice_number String
   client_name    String
-  client_email   String
-  client_phone   String
-  client_address String
+  client_email   String?
+  client_phone   String?
+  client_address String?
   date           DateTime
   due_date       DateTime
   currency       String
@@ -50,7 +50,7 @@ model Invoice {
 model InvoiceItem {
   id          Int     @id @default(autoincrement())
   invoice_id  Int
-  description String
+  description String?
   quantity    Int
   unit_price  Decimal
 
