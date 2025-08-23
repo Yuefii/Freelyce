@@ -1,5 +1,5 @@
 import { Button } from "@/packages/shadcn/ui/button";
-import { Card, CardContent } from "@/packages/shadcn/ui/card";
+import { Card } from "@/packages/shadcn/ui/card";
 import { FileText, User } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";

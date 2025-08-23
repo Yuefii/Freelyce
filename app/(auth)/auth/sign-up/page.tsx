@@ -49,8 +49,8 @@ export default function Page() {
       await res.json();
       setSuccess("Account created successfully!");
       router.push("/auth/sign-in");
-    } catch (err: any) {
-      setError(err.message || "Something went wrong");
+    } catch (err) {
+      setError("Something went wrong");
     } finally {
       setLoading(false);
     }

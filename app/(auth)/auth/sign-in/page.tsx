@@ -42,8 +42,8 @@ export default function Page() {
       document.cookie = `token=${data.token}; path=/; secure; samesite=strict`;
       await refresh();
       router.push("/dashboard");
-    } catch (err: any) {
-      setError(err.message || "Something went wrong");
+    } catch (err) {
+      setError("Something went wrong");
     } finally {
       setLoading(false);
     }

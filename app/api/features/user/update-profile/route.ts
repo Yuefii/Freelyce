@@ -21,14 +21,6 @@ export async function PATCH(req: NextRequest) {
       )
     }
 
-    const updateData: any = {}
-    if (name) updateData.name = name
-    if (email) updateData.email = email;
-    if (business_name) updateData.business_name = business_name;
-    if (business_address) updateData.business_address = business_address;
-    if (business_email) updateData.business_email = business_email;
-    if (phone) updateData.phone = phone;
-
     const user = await prisma.user.update({
       where: { id: parseInt(userID) },
       data: {
