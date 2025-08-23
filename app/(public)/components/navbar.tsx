@@ -1,11 +1,13 @@
 "use client";
 
+import { useSession } from "@/context/session-context";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { user, loading } = useSession();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -42,12 +44,22 @@ export default function Navbar() {
           >
             Blog
           </Link>
-          <Link
-            href="/auth/sign-in"
-            className="bg-[#14BA85] border-2 border-black rounded-lg px-4 py-2 font-semibold shadow-[3px_3px_0px_black] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition"
-          >
-            Sign In
-          </Link>
+          {!loading &&
+            (user ? (
+              <Link
+                href="/dashboard"
+                className="bg-[#14BA85] text-sm border-2 border-black rounded-lg px-4 py-1.5 font-semibold shadow-[3px_3px_0px_black] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition"
+              >
+                Dashboard
+              </Link>
+            ) : (
+              <Link
+                href="/auth/sign-in"
+                className="bg-[#14BA85] text-sm border-2 border-black rounded-lg px-4 py-1.5 font-semibold shadow-[3px_3px_0px_black] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition"
+              >
+                Sign In
+              </Link>
+            ))}
         </div>
         <div className="lg:hidden">
           <button
@@ -131,13 +143,24 @@ export default function Navbar() {
                   Blog
                 </Link>
                 <div className="pt-6">
-                  <Link
-                    href="/auth/sign-in"
-                    className="block w-full bg-[#14BA85] border-2 border-black rounded-xl px-6 py-3 font-semibold shadow-[3px_3px_0px_black] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition text-center"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    Sign In
-                  </Link>
+                  {!loading &&
+                    (user ? (
+                      <Link
+                        href="/dashboard"
+                        className="block w-full bg-[#14BA85] border-2 border-black rounded-xl px-6 py-3 font-semibold shadow-[3px_3px_0px_black] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition text-center"
+                        onClick={() => setIsMenuOpen(false)}
+                      >
+                        Dashboard
+                      </Link>
+                    ) : (
+                      <Link
+                        href="/auth/sign-in"
+                        className="block w-full bg-[#14BA85] border-2 border-black rounded-xl px-6 py-3 font-semibold shadow-[3px_3px_0px_black] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition text-center"
+                        onClick={() => setIsMenuOpen(false)}
+                      >
+                        Sign In
+                      </Link>
+                    ))}
                 </div>
               </div>
             </div>
