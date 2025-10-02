@@ -1,4 +1,4 @@
-<section class="bg-white pb-24 pt-[120px] md:pt-[280px]">
+<section class="bg-white pb-24 pt-[200px] md:pt-[280px]">
 	<div class="mx-auto max-w-7xl px-6">
 		<div class="mb-16 text-center">
 			<h1 class="hero-text mb-8 font-black text-[#2F3E46]">
