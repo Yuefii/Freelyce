@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { fade } from 'svelte/transition';
 	import { onMount, onDestroy } from 'svelte';
+	import { Menu, X } from 'lucide-svelte';
 	import logo from '$lib/assets/logo.png';
 
 	let mobileMenuOpen = false;
@@ -47,10 +48,10 @@
 	{/if}
 
 	<div class="mx-auto max-w-7xl px-6 pb-2 pt-4">
-		<div class="mx-5 flex items-center justify-between md:mx-0">
+		<div class="flex items-center justify-between md:mx-0">
 			<div class="flex items-center space-x-3">
-				<a href="/" class="Grotesk text-2xl text-[#2F3E46] md:text-4xl">
-					<img class="h-[100px] w-full" src={logo} alt="logo" />
+				<a href="/" class="text-2xl text-[#2F3E46] md:text-4xl">
+					<img class="h-16 w-full md:h-[100px]" src={logo} alt="logo" />
 				</a>
 			</div>
 
@@ -70,19 +71,11 @@
 			</div>
 
 			<button class="md:hidden" on:click={toggleMobileMenu} aria-label="button">
-				<svg
-					class="h-6 w-6 text-[#2F3E46]"
-					fill="none"
-					stroke="currentColor"
-					viewBox="0 0 24 24"
-				>
-					<path
-						stroke-linecap="round"
-						stroke-linejoin="round"
-						stroke-width="2"
-						d="M4 6h16M4 12h16M4 18h16"
-					></path>
-				</svg>
+				{#if mobileMenuOpen}
+					<X class="h-6 w-6 text-[#2F3E46]" />
+				{:else}
+					<Menu class="h-6 w-6 text-[#2F3E46]" />
+				{/if}
 			</button>
 		</div>
 	</div>
@@ -103,28 +96,64 @@
 		<div class="space-y-2 border-t border-[#91B678] px-6 pb-4 md:hidden">
 			<a
 				href="#features"
-				class="block text-sm font-medium text-[#2F3E46] hover:text-[#3E594D]"
+				on:click={toggleMobileMenu}
+				class="block pt-2 text-sm font-medium text-[#2F3E46] hover:text-[#3E594D]"
+				>Features</a
 			>
-				Features
-			</a>
 			<a
-				href="#intelligence"
+				href="#pricing"
+				on:click={toggleMobileMenu}
 				class="block text-sm font-medium text-[#2F3E46] hover:text-[#3E594D]"
+				>Pricing</a
 			>
-				Intelligence
-			</a>
 			<a
 				href="#about"
+				on:click={toggleMobileMenu}
 				class="block text-sm font-medium text-[#2F3E46] hover:text-[#3E594D]"
+				>About</a
 			>
-				About
-			</a>
 			<a
-				href="/auth/sign-up"
-				class="mt-2 block w-full bg-[#F0F9E4] px-6 py-2 text-center text-sm font-medium text-[#2F3E46] transition-colors hover:bg-[#E2F0D0]"
+				href="#contact"
+				on:click={toggleMobileMenu}
+				class="block text-sm font-medium text-[#2F3E46] hover:text-[#3E594D]"
+				>Contact</a
 			>
-				Get Started
-			</a>
+			<a
+				href="/blog"
+				on:click={toggleMobileMenu}
+				class="block text-sm font-medium text-[#2F3E46] hover:text-[#3E594D]"
+				>Blog</a
+			>
+
+			<div class="mt-4 border-t border-gray-200 pt-4">
+				<a
+					href="/auth/sign-in"
+					class="block text-sm font-medium text-[#2F3E46] hover:text-[#3E594D]"
+					>Sign-in</a
+				>
+				<a
+					href="/auth/sign-up"
+					class="mt-2 block w-full rounded bg-[#7A9E58] px-6 py-2 text-center text-sm font-medium text-white transition-colors hover:opacity-80"
+					>Get Started</a
+				>
+			</div>
 		</div>
 	{/if}
 </nav>
+
+<style>
+	.news-ticker {
+		display: inline-block;
+		white-space: nowrap;
+		animation: ticker 40s linear infinite;
+	}
+
+	@keyframes ticker {
+		0% {
+			transform: translateX(0%);
+		}
+		100% {
+			transform: translateX(-50%);
+		}
+	}
+</style>
