@@ -1,11 +1,5 @@
-@import 'tailwindcss';
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
-@import url('https://fonts.cdnfonts.com/css/neue-haas-grotesk-display-pro');
-
-.Grotesk {
-  font-family: 'Neue Haas Grotesk Display Pro', sans-serif;
-  font-weight: 700;
-}
+@import 'tailwindcss';
 
 body {
 	font-family: 'Inter', sans-serif;
@@ -90,7 +84,7 @@ body {
 	left: 0;
 	width: 0;
 	height: 2px;
-	background-color: #fff;
+	background-color: #7a9e58;
 	transition: width 0.3s ease;
 }
 
