@@ -12,6 +12,23 @@
 
 	let showTicker = true;
 
+	const tickerMessages = [
+		'Buat Invoice Profesional dalam Waktu Kurang dari 3 Menit',
+		'Hemat Waktu Administrasi, Fokus pada Karya Anda',
+		'Dirancang untuk Freelancer, Pekerja Mandiri dan pelaku bisnis',
+		'Cobalah Memulai dengan Gratis'
+	];
+
+	const doubledTickerMessages = [...tickerMessages, ...tickerMessages];
+
+	const navLinks = [
+		{ href: '#features', text: 'Features' },
+		{ href: '#pricing', text: 'Pricing' },
+		{ href: '#about', text: 'About' },
+		{ href: '#contact', text: 'Contact' },
+		{ href: '/blog', text: 'Blog' }
+	];
+
 	onMount(() => {
 		const handleScroll = () => {
 			showTicker = window.scrollY <= 20;
@@ -34,15 +51,9 @@
 			transition:fade
 		>
 			<div class="news-ticker">
-				<span class="mx-8"
-					>Buat Invoice Profesional dalam Waktu Kurang dari 3 Menit</span
-				>
-				<span class="mx-8">Hemat Waktu Administrasi, Fokus pada Karya Anda</span
-				>
-				<span class="mx-8"
-					>Dirancang untuk Freelancer, Pekerja Mandiri dan pelaku bisnis</span
-				>
-				<span class="mx-8">Cobalah Memulai dengan Gratis</span>
+				{#each doubledTickerMessages as message}
+					<span class="mx-8">{message}</span>
+				{/each}
 			</div>
 		</div>
 	{/if}
@@ -84,46 +95,22 @@
 		<div
 			class="mx-auto flex max-w-7xl items-center space-x-8 px-6 pt-1.5 text-sm text-[#2F3E46]"
 		>
-			<a href="#features" class="hover-underline">Features</a>
-			<a href="#pricing" class="hover-underline">Pricing</a>
-			<a href="#about" class="hover-underline">About</a>
-			<a href="#contact" class="hover-underline">Contact</a>
-			<a href="/blog" class="hover-underline">Blog</a>
+			{#each navLinks as link}
+				<a href={link.href} class="hover-underline">{link.text}</a>
+			{/each}
 		</div>
 	</div>
 
 	{#if mobileMenuOpen}
 		<div class="space-y-2 border-t border-[#91B678] px-6 pb-4 md:hidden">
-			<a
-				href="#features"
-				on:click={toggleMobileMenu}
-				class="block pt-2 text-sm font-medium text-[#2F3E46] hover:text-[#3E594D]"
-				>Features</a
-			>
-			<a
-				href="#pricing"
-				on:click={toggleMobileMenu}
-				class="block text-sm font-medium text-[#2F3E46] hover:text-[#3E594D]"
-				>Pricing</a
-			>
-			<a
-				href="#about"
-				on:click={toggleMobileMenu}
-				class="block text-sm font-medium text-[#2F3E46] hover:text-[#3E594D]"
-				>About</a
-			>
-			<a
-				href="#contact"
-				on:click={toggleMobileMenu}
-				class="block text-sm font-medium text-[#2F3E46] hover:text-[#3E594D]"
-				>Contact</a
-			>
-			<a
-				href="/blog"
-				on:click={toggleMobileMenu}
-				class="block text-sm font-medium text-[#2F3E46] hover:text-[#3E594D]"
-				>Blog</a
-			>
+			{#each navLinks as link}
+				<a
+					href={link.href}
+					on:click={toggleMobileMenu}
+					class="block pt-2 text-sm font-medium text-[#2F3E46] hover:text-[#3E594D]"
+					>{link.text}</a
+				>
+			{/each}
 
 			<div class="mt-4 border-t border-gray-200 pt-4">
 				<a
