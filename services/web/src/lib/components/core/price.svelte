@@ -1,5 +1,16 @@
-<script>
+<script lang="ts">
 	import { Check } from 'lucide-svelte';
+	import Modal from './modal-coming-soon.svelte';
+
+	let showModal = false;
+
+	function openModal() {
+		showModal = true;
+	}
+
+	function closeModal() {
+		showModal = false;
+	}
 </script>
 
 <section id="pricing" class="bg-[#F0F9E4] py-24">
@@ -39,11 +50,12 @@
 					</li>
 				</ul>
 				<div class="mt-auto pt-8">
-					<button
-						class="w-full rounded border border-[#2F3E46] px-6 py-3 font-medium text-[#2F3E46] transition-colors hover:bg-gray-50"
+					<a
+						href="/auth/sign-up"
+						class="block w-full rounded border border-[#2F3E46] px-6 py-3 text-center font-medium text-[#2F3E46] transition-colors hover:bg-gray-50"
 					>
 						Mulai Sekarang
-					</button>
+					</a>
 				</div>
 			</div>
 
@@ -89,6 +101,7 @@
 				<div class="mt-auto pt-8">
 					<button
 						class="w-full rounded bg-[#2F3E46] px-6 py-3 font-medium text-white transition-colors hover:opacity-80"
+						on:click={openModal}
 					>
 						Pilih Paket Pro
 					</button>
@@ -97,3 +110,5 @@
 		</div>
 	</div>
 </section>
+
+<Modal {showModal} onClose={closeModal} />
