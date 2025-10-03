@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./services/web/src/lib/assets/logo.png" width="160" alt="logo">
+  <img src="./services/web/src/lib/assets/logo.png" width="280" alt="logo">
 </p>
 <p align="center">
   Freelyce adalah aplikasi invoice generator berbasis website yang dirancang untuk freelance, pekerja mandiri, dan pelaku bisnis. aplikasi ini berfokus pada kesederhanaan, kecepatan dan profesionalitas. sebuah aplikasi yang membantu kalian membuat invoice yang rapi dan terpercaya.
