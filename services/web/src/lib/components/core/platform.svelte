@@ -1,3 +1,38 @@
+<script lang="ts">
+	const features = [
+		{
+			title: 'Pembuatan Invoice Cepat',
+			color: 'text-text-secondary',
+			items: [
+				'Template profesional siap pakai',
+				'Kustomisasi dengan logo & warna brand',
+				'Simpan item & jasa untuk digunakan lagi',
+				'Download & kirim invoice dalam format PDF'
+			]
+		},
+		{
+			title: 'Manajemen Pembayaran Mudah',
+			color: 'text-text-primary',
+			items: [
+				'Kirim tagihan langsung ke email klien',
+				'Pengingat pembayaran jatuh tempo otomatis',
+				'Lacak status (dilihat, terbayar, terlambat)',
+				'Kelola semua data klien di satu tempat'
+			]
+		},
+		{
+			title: 'Laporan & Analisis Sederhana',
+			color: 'text-text-primary',
+			items: [
+				'Dashboard untuk memantau total pendapatan',
+				'Lihat riwayat pembayaran dari setiap klien',
+				'Laporan pendapatan bulanan & tahunan',
+				'Ekspor data untuk keperluan administrasi'
+			]
+		}
+	];
+</script>
+
 <section class="bg-secondary py-24">
 	<div class="mx-auto max-w-7xl px-6">
 		<div class="mb-16 text-center">
@@ -12,101 +47,23 @@
 		</div>
 
 		<div class="grid gap-16 lg:grid-cols-3">
-			<div>
-				<h3 class="text-text-primary mb-6 text-xl font-bold">
-					Pembuatan Invoice Cepat
-				</h3>
-				<ul class="text-text-secondary space-y-4 text-sm">
-					<li class="flex items-start">
-						<div
-							class="bg-primary mr-3 mt-2 h-1 w-1 flex-shrink-0 rounded-full"
-						></div>
-						<span>Template profesional siap pakai</span>
-					</li>
-					<li class="flex items-start">
-						<div
-							class="bg-primary mr-3 mt-2 h-1 w-1 flex-shrink-0 rounded-full"
-						></div>
-						<span>Kustomisasi dengan logo & warna brand</span>
-					</li>
-					<li class="flex items-start">
-						<div
-							class="bg-primary mr-3 mt-2 h-1 w-1 flex-shrink-0 rounded-full"
-						></div>
-						<span>Simpan item & jasa untuk digunakan lagi</span>
-					</li>
-					<li class="flex items-start">
-						<div
-							class="bg-primary mr-3 mt-2 h-1 w-1 flex-shrink-0 rounded-full"
-						></div>
-						<span>Download & kirim invoice dalam format PDF</span>
-					</li>
-				</ul>
-			</div>
-
-			<div>
-				<h3 class="text-text-primary mb-6 text-xl font-bold">
-					Manajemen Pembayaran Mudah
-				</h3>
-				<ul class="text-text-primary space-y-4 text-sm">
-					<li class="flex items-start">
-						<div
-							class="bg-primary mr-3 mt-2 h-1 w-1 flex-shrink-0 rounded-full"
-						></div>
-						<span>Kirim tagihan langsung ke email klien</span>
-					</li>
-					<li class="flex items-start">
-						<div
-							class="bg-primary mr-3 mt-2 h-1 w-1 flex-shrink-0 rounded-full"
-						></div>
-						<span>Pengingat pembayaran jatuh tempo otomatis</span>
-					</li>
-					<li class="flex items-start">
-						<div
-							class="bg-primary mr-3 mt-2 h-1 w-1 flex-shrink-0 rounded-full"
-						></div>
-						<span>Lacak status (dilihat, terbayar, terlambat)</span>
-					</li>
-					<li class="flex items-start">
-						<div
-							class="bg-primary mr-3 mt-2 h-1 w-1 flex-shrink-0 rounded-full"
-						></div>
-						<span>Kelola semua data klien di satu tempat</span>
-					</li>
-				</ul>
-			</div>
-
-			<div>
-				<h3 class="text-text-primary mb-6 text-xl font-bold">
-					Laporan & Analisis Sederhana
-				</h3>
-				<ul class="text-text-primary space-y-4 text-sm">
-					<li class="flex items-start">
-						<div
-							class="bg-primary mr-3 mt-2 h-1 w-1 flex-shrink-0 rounded-full"
-						></div>
-						<span>Dashboard untuk memantau total pendapatan</span>
-					</li>
-					<li class="flex items-start">
-						<div
-							class="bg-primary mr-3 mt-2 h-1 w-1 flex-shrink-0 rounded-full"
-						></div>
-						<span>Lihat riwayat pembayaran dari setiap klien</span>
-					</li>
-					<li class="flex items-start">
-						<div
-							class="bg-primary mr-3 mt-2 h-1 w-1 flex-shrink-0 rounded-full"
-						></div>
-						<span>Laporan pendapatan bulanan & tahunan</span>
-					</li>
-					<li class="flex items-start">
-						<div
-							class="bg-primary mr-3 mt-2 h-1 w-1 flex-shrink-0 rounded-full"
-						></div>
-						<span>Ekspor data untuk keperluan administrasi</span>
-					</li>
-				</ul>
-			</div>
+			{#each features as feature}
+				<div>
+					<h3 class="text-text-primary mb-6 text-xl font-bold">
+						{feature.title}
+					</h3>
+					<ul class="{feature.color} space-y-4 text-sm">
+						{#each feature.items as item}
+							<li class="flex items-start">
+								<div
+									class="bg-primary mr-3 mt-2 h-1 w-1 flex-shrink-0 rounded-full"
+								></div>
+								<span>{item}</span>
+							</li>
+						{/each}
+					</ul>
+				</div>
+			{/each}
 		</div>
 	</div>
 </section>
