@@ -24,7 +24,6 @@
 				bisnis Anda.
 			</p>
 		</div>
-
 		<div class="mx-auto grid max-w-md gap-12 lg:max-w-4xl lg:grid-cols-2">
 			<div
 				class="border-text-primary flex flex-col rounded border bg-white p-8"
@@ -56,13 +55,12 @@
 				<div class="mt-auto pt-8">
 					<a
 						href="/auth/sign-up"
-						class="border-text-primary text-text-primary block w-full cursor-pointer rounded border px-6 py-3 text-center font-medium transition-colors hover:opacity-80"
+						class="border-text-primary text-text-primary block w-full cursor-pointer rounded border px-6 py-3 text-center font-medium transition-colors hover:scale-105 hover:shadow-lg"
 					>
 						Mulai Sekarang
 					</a>
 				</div>
 			</div>
-
 			<div
 				class="border-text-primary relative flex flex-col rounded border-2 bg-white p-8"
 			>
@@ -75,9 +73,24 @@
 				<p class="text-text-secondary mt-2 text-sm">
 					Untuk freelancer & bisnis yang ingin berkembang.
 				</p>
-				<div class="mt-6">
-					<span class="text-4xl font-bold">Rp 59.000</span>
-					<span class="text-text-secondary text-lg font-medium">/ bulan</span>
+				<div class="mt-6 flex flex-col items-start gap-2">
+					<div class="flex items-center gap-2">
+						<span
+							class="text-text-secondary text-base font-semibold line-through opacity-70"
+							>Rp 125.000</span
+						>
+						<span
+							class="bg-primary inline-flex items-center gap-1 rounded-full px-3 py-1 text-xs font-bold text-white shadow"
+						>
+							80% Diskon
+						</span>
+					</div>
+					<div class="mt-1 flex items-end gap-2">
+						<span class="text-5xl font-extrabold text-black drop-shadow"
+							>Rp 25.000</span
+						>
+						<span class="text-text-secondary text-lg font-medium">/ bulan</span>
+					</div>
 				</div>
 				<ul class="mt-8 space-y-4 text-sm">
 					<li class="flex items-center font-semibold">
@@ -107,7 +120,7 @@
 				</ul>
 				<div class="mt-auto pt-8">
 					<button
-						class="bg-text-primary w-full cursor-pointer rounded px-6 py-3 font-medium text-white transition-colors hover:opacity-80"
+						class="bg-text-primary w-full cursor-pointer rounded px-6 py-3 font-semibold text-white shadow transition-all duration-200 hover:scale-105 hover:shadow-lg"
 						on:click={openModal}
 					>
 						Pilih Paket Pro
