@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { ChevronDown } from 'lucide-svelte';
 	let expandedInvoice: number | null = null;
 
 	const user = {
@@ -143,18 +144,7 @@
 								>Jatuh Tempo</span
 							>
 						{/if}
-						<svg
-							class="ml-2 h-5 w-5"
-							fill="none"
-							stroke="currentColor"
-							viewBox="0 0 24 24"
-							><path
-								stroke-linecap="round"
-								stroke-linejoin="round"
-								stroke-width="2"
-								d="M19 9l-7 7-7-7"
-							/></svg
-						>
+						<ChevronDown class="ml-2 h-5 w-5" />
 					</button>
 					{#if expandedInvoice === i}
 						<div class="px-4 py-4 text-sm">

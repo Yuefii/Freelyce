@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Menu, Settings, User } from 'lucide-svelte';
+	import { Menu, User } from 'lucide-svelte';
 	export let toggleMenu: () => void;
 </script>
 
