@@ -19,7 +19,7 @@
 			class="group flex items-center rounded-md px-3 py-2 text-sm font-medium text-[#2F3E46] hover:bg-white hover:text-black"
 		>
 			<LayoutDashboard class="mr-3 h-5 w-5" />
-			{isMobile ? 'Dasbor' : 'Dashboard'}
+			{isMobile ? 'Dashboard' : 'Dashboard'}
 		</a>
 		<a
 			href="/dashboard/invoices"
