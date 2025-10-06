@@ -11,12 +11,12 @@
 	}
 </script>
 
-<section id="contact" class="bg-[#F0F9E4] py-24">
+<section id="contact" class="bg-secondary py-24">
 	<div class="mx-auto max-w-3xl px-6 text-center">
-		<h2 class="text-4xl font-black leading-tight text-[#2F3E46]">
+		<h2 class="text-text-primary text-4xl font-black leading-tight">
 			Hubungi Kami
 		</h2>
-		<p class="mx-auto mt-4 max-w-2xl text-lg text-gray-600">
+		<p class="text-text-secondary mx-auto mt-4 max-w-2xl text-lg">
 			Ada pertanyaan, saran, atau butuh bantuan? Jangan ragu untuk mengisi form
 			di bawah ini.
 		</p>
@@ -26,7 +26,7 @@
 				<div class="sm:col-span-2">
 					<label
 						for="name"
-						class="block text-sm font-semibold leading-6 text-[#2F3E46]"
+						class="text-text-primary block text-sm font-semibold leading-6"
 						>Nama Lengkap</label
 					>
 					<div class="mt-2.5">
@@ -43,7 +43,7 @@
 				<div class="sm:col-span-2">
 					<label
 						for="email"
-						class="block text-sm font-semibold leading-6 text-[#2F3E46]"
+						class="text-text-primary block text-sm font-semibold leading-6"
 						>Alamat Email</label
 					>
 					<div class="mt-2.5">
@@ -60,7 +60,7 @@
 				<div class="sm:col-span-2">
 					<label
 						for="message"
-						class="block text-sm font-semibold leading-6 text-[#2F3E46]"
+						class="text-text-primary block text-sm font-semibold leading-6"
 						>Pesan Anda</label
 					>
 					<div class="mt-2.5">
@@ -78,7 +78,7 @@
 			<div class="mt-10">
 				<button
 					type="submit"
-					class="block w-full cursor-pointer rounded-md bg-[#2F3E46] px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-gray-800 focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-black"
+					class="bg-text-primary block w-full cursor-pointer rounded-md px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-gray-800 focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-black"
 				>
 					Kirim Pesan
 				</button>
