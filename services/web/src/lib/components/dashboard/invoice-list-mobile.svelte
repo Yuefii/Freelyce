@@ -1,11 +1,13 @@
 <script lang="ts">
+	import { getStatusClass } from '$lib/helpers/status-class';
 	import type { Invoice } from '$lib/invoice-example-data';
 	import { ChevronDown } from 'lucide-svelte';
+
 	export let invoices: Invoice[];
 	let expandedInvoice: number | null = null;
 </script>
 
-<ul class="divide-y divide-gray-200 rounded-lg border border-gray-200 bg-white">
+<ul class="divide-y divide-gray-200 rounded border border-gray-200 bg-white">
 	{#each invoices as invoice, i}
 		<li>
 			<button
@@ -16,7 +18,7 @@
 						: (expandedInvoice = i)}
 			>
 				<span>{invoice.no}</span>
-				<span class={invoice.statusClass}>{invoice.status}</span>
+				<span class={getStatusClass(invoice.status)}>{invoice.status}</span>
 				<ChevronDown class="ml-2 h-5 w-5" />
 			</button>
 			{#if expandedInvoice === i}
