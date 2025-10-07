@@ -6,7 +6,7 @@
 
 <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
 	<div
-		class="overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm"
+		class="overflow-hidden rounded border border-gray-200 bg-white shadow-sm"
 	>
 		<div class="p-5">
 			<p class="truncate text-sm font-medium text-gray-500">
@@ -18,7 +18,7 @@
 		</div>
 	</div>
 	<div
-		class="overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm"
+		class="overflow-hidden rounded border border-gray-200 bg-white shadow-sm"
 	>
 		<div class="p-5">
 			<p class="truncate text-sm font-medium text-gray-500">Invoice Terbayar</p>
@@ -28,7 +28,7 @@
 		</div>
 	</div>
 	<div
-		class="overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm"
+		class="overflow-hidden rounded border border-gray-200 bg-white shadow-sm"
 	>
 		<div class="p-5">
 			<p class="truncate text-sm font-medium text-gray-500">
@@ -40,7 +40,7 @@
 		</div>
 	</div>
 	<div
-		class="overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm"
+		class="overflow-hidden rounded border border-gray-200 bg-white shadow-sm"
 	>
 		<div class="p-5">
 			<p class="truncate text-sm font-medium text-gray-500">Jatuh Tempo</p>
