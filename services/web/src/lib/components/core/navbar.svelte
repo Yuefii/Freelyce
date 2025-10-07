@@ -47,7 +47,7 @@
 <nav class="fixed top-0 z-50 w-full bg-white shadow-md backdrop-blur-sm">
 	{#if showTicker}
 		<div
-			class="bg-primary overflow-hidden whitespace-nowrap py-1.5 text-sm text-white transition-all duration-300"
+			class="overflow-hidden bg-primary py-1.5 text-sm whitespace-nowrap text-white transition-all duration-300"
 			transition:fade
 		>
 			<div class="news-ticker">
@@ -58,34 +58,45 @@
 		</div>
 	{/if}
 
-	<div class="mx-auto max-w-7xl px-6 pb-2 pt-4">
+	<div class="mx-auto max-w-7xl px-6 pt-4 pb-2">
 		<div class="flex items-center justify-between md:mx-0">
 			<div class="flex items-center space-x-3">
-				<a href="/" class="text-text-primary text-2xl md:text-4xl">
-					<img class="h-16 w-full md:h-[100px]" src={logo} alt="logo" />
+				<a
+					href="/"
+					class="text-2xl text-text-primary md:text-4xl"
+				>
+					<img
+						class="h-16 w-full md:h-[100px]"
+						src={logo}
+						alt="logo"
+					/>
 				</a>
 			</div>
 
 			<div class="hidden items-center space-x-8 md:flex">
 				<a
 					href="/auth/sign-in"
-					class="hover-underline text-text-primary font-medium"
+					class="hover-underline font-medium text-text-primary"
 				>
 					Sign-in
 				</a>
 				<a
 					href="/auth/sign-up"
-					class="bg-primary cursor-pointer rounded px-6 py-2 text-lg font-medium text-white transition-colors hover:opacity-80"
+					class="cursor-pointer rounded bg-primary px-6 py-2 text-lg font-medium text-white transition-colors hover:opacity-80"
 				>
 					Get Started
 				</a>
 			</div>
 
-			<button class="md:hidden" on:click={toggleMobileMenu} aria-label="button">
+			<button
+				class="md:hidden"
+				on:click={toggleMobileMenu}
+				aria-label="button"
+			>
 				{#if mobileMenuOpen}
-					<X class="text-text-primary h-6 w-6" />
+					<X class="h-6 w-6 text-text-primary" />
 				{:else}
-					<Menu class="text-text-primary h-6 w-6" />
+					<Menu class="h-6 w-6 text-text-primary" />
 				{/if}
 			</button>
 		</div>
@@ -93,21 +104,24 @@
 
 	<div class="mx-auto hidden px-6 pb-2 md:block">
 		<div
-			class="text-text-primary mx-auto flex max-w-7xl items-center space-x-8 px-6 pt-1.5 text-sm"
+			class="mx-auto flex max-w-7xl items-center space-x-8 px-6 pt-1.5 text-sm text-text-primary"
 		>
 			{#each navLinks as link}
-				<a href={link.href} class="hover-underline">{link.text}</a>
+				<a
+					href={link.href}
+					class="hover-underline">{link.text}</a
+				>
 			{/each}
 		</div>
 	</div>
 
 	{#if mobileMenuOpen}
-		<div class="border-primary space-y-2 border-t px-6 pb-4 md:hidden">
+		<div class="space-y-2 border-t border-primary px-6 pb-4 md:hidden">
 			{#each navLinks as link}
 				<a
 					href={link.href}
 					on:click={toggleMobileMenu}
-					class="text-text-primary hover:text-text-secondary block pt-2 text-sm font-medium"
+					class="block pt-2 text-sm font-medium text-text-primary hover:text-text-secondary"
 					>{link.text}</a
 				>
 			{/each}
@@ -115,12 +129,12 @@
 			<div class="mt-4 border-t border-gray-200 pt-4">
 				<a
 					href="/auth/sign-in"
-					class="text-text-primary hover:text-text-secondary block text-sm font-medium"
+					class="block text-sm font-medium text-text-primary hover:text-text-secondary"
 					>Sign-in</a
 				>
 				<a
 					href="/auth/sign-up"
-					class="bg-primary mt-2 block w-full rounded px-6 py-2 text-center text-sm font-medium text-white transition-colors hover:opacity-80"
+					class="mt-2 block w-full rounded bg-primary px-6 py-2 text-center text-sm font-medium text-white transition-colors hover:opacity-80"
 					>Get Started</a
 				>
 			</div>

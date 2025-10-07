@@ -23,7 +23,7 @@
 				<input
 					type="text"
 					placeholder="Cari klien atau no. invoice..."
-					class="w-full rounded border border-slate-300 bg-white py-2 pl-10 pr-4 text-sm text-slate-700 transition focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200"
+					class="w-full rounded border border-slate-300 bg-white py-2 pr-4 pl-10 text-sm text-slate-700 transition focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200"
 				/>
 			</div>
 		</div>

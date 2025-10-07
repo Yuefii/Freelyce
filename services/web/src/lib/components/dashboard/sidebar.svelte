@@ -9,8 +9,15 @@
 	class={`w-64 flex-col border-r border-gray-200 ${isMobile ? 'fixed inset-y-0 left-0 z-50 bg-[#F0F9E4] md:hidden' : 'hidden bg-[#F0F9E4] md:flex'}`}
 >
 	<div class="flex h-16 items-center px-6">
-		<a href="/" class="text-2xl text-[#2F3E46] md:text-4xl">
-			<img class="h-16 w-full" src={logo} alt="logo" />
+		<a
+			href="/"
+			class="text-2xl text-[#2F3E46] md:text-4xl"
+		>
+			<img
+				class="h-16 w-full"
+				src={logo}
+				alt="logo"
+			/>
 		</a>
 	</div>
 	<nav class="flex-1 space-y-2 overflow-y-auto p-4">

@@ -30,12 +30,12 @@
 			{#each updates as update}
 				<article class="hover-lift">
 					<div
-						class="mb-3 text-xs font-medium uppercase tracking-wider {update.labelClass}"
+						class="mb-3 text-xs font-medium tracking-wider uppercase {update.labelClass}"
 					>
 						{update.label}
 					</div>
 					<h3
-						class="hover-underline text-text-primary mb-3 cursor-pointer text-lg font-semibold"
+						class="hover-underline mb-3 cursor-pointer text-lg font-semibold text-text-primary"
 					>
 						{update.title}
 					</h3>

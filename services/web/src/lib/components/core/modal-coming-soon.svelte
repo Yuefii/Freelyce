@@ -57,20 +57,20 @@
 	>
 		<div class="relative w-full max-w-md rounded bg-white p-8 shadow-xl">
 			<button
-				class="absolute right-4 top-4 text-gray-400 hover:text-gray-600"
+				class="absolute top-4 right-4 text-gray-400 hover:text-gray-600"
 				on:click={closeModal}
 				aria-label="Close"
 			>
 				<X class="h-6 w-6" />
 			</button>
-			<h3 class="text-text-primary text-2xl font-bold">Fitur Belum Tersedia</h3>
-			<p class="text-text-secondary mt-4">
+			<h3 class="text-2xl font-bold text-text-primary">Fitur Belum Tersedia</h3>
+			<p class="mt-4 text-text-secondary">
 				Fitur ini sedang dalam pengembangan dan akan segera hadir. Terima kasih
 				atas kesabaran Anda!
 			</p>
 			<div class="mt-6 flex justify-end">
 				<button
-					class="bg-text-primary cursor-pointer rounded px-6 py-2 font-medium text-white transition-colors hover:opacity-80"
+					class="cursor-pointer rounded bg-text-primary px-6 py-2 font-medium text-white transition-colors hover:opacity-80"
 					on:click={closeModal}
 				>
 					Tutup

@@ -36,11 +36,11 @@
 <section class="bg-secondary py-24">
 	<div class="mx-auto max-w-7xl px-6">
 		<div class="mb-16 text-center">
-			<h2 class="text-text-primary mb-8 text-4xl font-black leading-tight">
+			<h2 class="mb-8 text-4xl leading-tight font-black text-text-primary">
 				Satu Platform, Semua Kebutuhan
 			</h2>
-			<div class="bg-primary mx-auto h-0.5 w-24"></div>
-			<p class="text-text-secondary mx-auto mt-8 max-w-2xl text-lg">
+			<div class="mx-auto h-0.5 w-24 bg-primary"></div>
+			<p class="mx-auto mt-8 max-w-2xl text-lg text-text-secondary">
 				Dari membuat tagihan hingga memantau pendapatan, semua fitur yang Anda
 				perlukan ada di sini untuk memudahkan pekerjaan Anda.
 			</p>
@@ -49,14 +49,14 @@
 		<div class="grid gap-16 lg:grid-cols-3">
 			{#each features as feature}
 				<div>
-					<h3 class="text-text-primary mb-6 text-xl font-bold">
+					<h3 class="mb-6 text-xl font-bold text-text-primary">
 						{feature.title}
 					</h3>
 					<ul class="{feature.color} space-y-4 text-sm">
 						{#each feature.items as item}
 							<li class="flex items-start">
 								<div
-									class="bg-primary mr-3 mt-2 h-1 w-1 flex-shrink-0 rounded-full"
+									class="mt-2 mr-3 h-1 w-1 flex-shrink-0 rounded-full bg-primary"
 								></div>
 								<span>{item}</span>
 							</li>

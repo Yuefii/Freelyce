@@ -37,10 +37,16 @@
 
 <main class="pt-40">
 	<div class="mx-auto max-w-7xl px-6 py-16">
-		<nav aria-label="Breadcrumb" class="mb-8">
+		<nav
+			aria-label="Breadcrumb"
+			class="mb-8"
+		>
 			<ol class="flex items-center space-x-2 text-sm text-gray-500">
 				<li>
-					<a href="/" class="hover:text-gray-700 hover:underline">Home</a>
+					<a
+						href="/"
+						class="hover:text-gray-700 hover:underline">Home</a
+					>
 				</li>
 				<li>
 					<svg
@@ -58,7 +64,10 @@
 					</svg>
 				</li>
 				<li>
-					<a href="/blog" class="hover:text-gray-700 hover:underline">Blog</a>
+					<a
+						href="/blog"
+						class="hover:text-gray-700 hover:underline">Blog</a
+					>
 				</li>
 				<li>
 					<svg
@@ -86,7 +95,7 @@
 				<article>
 					<header class="mb-8 border-b border-gray-400 pb-8">
 						<p
-							class="text-sm font-semibold uppercase tracking-wider text-[#7A9E58]"
+							class="text-sm font-semibold tracking-wider text-[#7A9E58] uppercase"
 						>
 							{article.category}
 						</p>
@@ -186,7 +195,7 @@
 							{#each recommendedArticles as recArticle}
 								<div>
 									<p
-										class="text-xs font-semibold uppercase tracking-wider text-[#7A9E58]"
+										class="text-xs font-semibold tracking-wider text-[#7A9E58] uppercase"
 									>
 										{recArticle.category}
 									</p>

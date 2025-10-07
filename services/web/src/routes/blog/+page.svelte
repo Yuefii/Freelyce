@@ -36,7 +36,7 @@
 					<div class="flex flex-col">
 						<p class="text-sm font-semibold text-[#7A9E58]">PANDUAN APLIKASI</p>
 						<h2
-							class="mt-2 text-3xl font-bold leading-tight tracking-tight text-[#2F3E46]"
+							class="mt-2 text-3xl leading-tight font-bold tracking-tight text-[#2F3E46]"
 						>
 							<a
 								href="/blog/panduan-invoice-pertama-anda-di-freelyce"
@@ -73,7 +73,7 @@
 						</a>
 						<div class="flex flex-col md:col-span-3">
 							<p
-								class="text-xs font-semibold uppercase tracking-wider text-[#7A9E58]"
+								class="text-xs font-semibold tracking-wider text-[#7A9E58] uppercase"
 							>
 								Panduan Aplikasi
 							</p>
