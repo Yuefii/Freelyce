@@ -15,7 +15,7 @@
 	<div class="mt-5 flex h-16 items-center px-6">
 		<a
 			href="/"
-			class="text-text-primary text-2xl md:text-4xl"
+			class="text-2xl text-text-primary md:text-4xl"
 		>
 			<img
 				class="h-20 w-full"
@@ -27,7 +27,7 @@
 	<nav class="mt-3 flex-1 space-y-2 overflow-y-auto p-4">
 		<a
 			href="/dashboard"
-			class="hover:bg-primary text-text-primary group flex items-center rounded-md px-3 py-2 text-sm font-medium hover:text-white {$currentPath ===
+			class="group flex items-center rounded-md px-3 py-2 text-sm font-medium text-text-primary hover:bg-primary hover:text-white {$currentPath ===
 			'/dashboard'
 				? 'bg-primary text-white'
 				: ''}"
@@ -37,7 +37,7 @@
 		</a>
 		<a
 			href="/dashboard/invoices"
-			class="hover:bg-primary text-text-primary group flex items-center rounded-md px-3 py-2 text-sm font-medium hover:text-white {$currentPath.startsWith(
+			class="group flex items-center rounded-md px-3 py-2 text-sm font-medium text-text-primary hover:bg-primary hover:text-white {$currentPath.startsWith(
 				'/dashboard/invoices'
 			)
 				? 'bg-primary text-white'
@@ -48,7 +48,7 @@
 		</a>
 		<a
 			href="/dashboard/settings"
-			class="hover:bg-primary text-text-primary group flex items-center rounded-md px-3 py-2 text-sm font-medium hover:text-white {$currentPath ===
+			class="group flex items-center rounded-md px-3 py-2 text-sm font-medium text-text-primary hover:bg-primary hover:text-white {$currentPath ===
 			'/dashboard/settings'
 				? 'bg-primary text-white'
 				: ''}"
