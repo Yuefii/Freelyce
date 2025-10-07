@@ -95,7 +95,7 @@
 				<article>
 					<header class="mb-8 border-b border-gray-400 pb-8">
 						<p
-							class="text-sm font-semibold tracking-wider text-[#7A9E58] uppercase"
+							class="text-sm font-semibold uppercase tracking-wider text-[#7A9E58]"
 						>
 							{article.category}
 						</p>
@@ -182,7 +182,7 @@
 						<div class="flex justify-center">
 							<a
 								href="/auth/sign-up"
-								class="rounded bg-[#7A9E58] px-10 py-2 text-sm font-medium text-white transition-colors hover:opacity-80"
+								class="rounded bg-[#7A9E58] px-10 py-2 text-base font-medium text-white transition-all duration-200 hover:scale-105 hover:shadow-lg"
 							>
 								Daftar Gratis Sekarang
 							</a>
@@ -195,7 +195,7 @@
 							{#each recommendedArticles as recArticle}
 								<div>
 									<p
-										class="text-xs font-semibold tracking-wider text-[#7A9E58] uppercase"
+										class="text-xs font-semibold uppercase tracking-wider text-[#7A9E58]"
 									>
 										{recArticle.category}
 									</p>

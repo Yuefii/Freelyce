@@ -36,7 +36,7 @@
 					<div class="flex flex-col">
 						<p class="text-sm font-semibold text-[#7A9E58]">PANDUAN APLIKASI</p>
 						<h2
-							class="mt-2 text-3xl leading-tight font-bold tracking-tight text-[#2F3E46]"
+							class="mt-2 text-3xl font-bold leading-tight tracking-tight text-[#2F3E46]"
 						>
 							<a
 								href="/blog/panduan-invoice-pertama-anda-di-freelyce"
@@ -73,7 +73,7 @@
 						</a>
 						<div class="flex flex-col md:col-span-3">
 							<p
-								class="text-xs font-semibold tracking-wider text-[#7A9E58] uppercase"
+								class="text-xs font-semibold uppercase tracking-wider text-[#7A9E58]"
 							>
 								Panduan Aplikasi
 							</p>
@@ -104,7 +104,7 @@
 					<div class="flex justify-center">
 						<a
 							href="/auth/sign-up"
-							class="rounded bg-[#7A9E58] px-10 py-2 text-sm font-medium text-white transition-colors hover:opacity-80"
+							class="rounded bg-[#7A9E58] px-10 py-2 text-base font-medium text-white transition-all duration-200 hover:scale-105 hover:shadow-lg"
 						>
 							Daftar Gratis Sekarang
 						</a>
@@ -119,7 +119,7 @@
 					</p>
 					<a
 						href="/#about"
-						class="mt-4 inline-block text-sm font-bold text-[#2F3E46] transition-all hover:ml-1"
+						class="mt-4 inline-block text-sm font-bold text-[#2F3E46] transition-all hover:underline"
 					>
 						Baca Cerita Kami &rarr;
 					</a>
