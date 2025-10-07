@@ -1,26 +1,16 @@
 <script lang="ts">
-	import { INVOICES } from './invoiceData';
-	import { Plus, Search } from 'lucide-svelte';
+	import Heading from '$lib/components/dashboard/heading.svelte';
+	import InvoiceListMobile from '$lib/components/dashboard/invoice-list-mobile.svelte';
+	import InvoiceTable from '$lib/components/dashboard/invoice-table.svelte';
+	import { INVOICES } from '$lib/invoice-example-data';
+	import { Search } from 'lucide-svelte';
 </script>
 
 <main class="mx-auto">
-	<header
-		class="mb-8 flex flex-col items-start justify-between sm:flex-row sm:items-center"
-	>
-		<div>
-			<h1 class="text-3xl font-extrabold text-slate-800">Invoices</h1>
-			<p class="mt-1 text-sm text-slate-500">
-				Berikut adalah daftar semua invoice Anda.
-			</p>
-		</div>
-		<a
-			href="/dashboard/invoices/create"
-			class="bg-primary mt-4 flex items-center gap-2 rounded px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:opacity-80 focus:ring-4 focus:ring-emerald-200 sm:mt-0"
-		>
-			<Plus class="h-5 w-5" />
-			Buat Invoice Baru
-		</a>
-	</header>
+	<Heading
+		title="Invoices"
+		description="Berikut adalah daftar semua invoice Anda."
+	/>
 
 	<div class="overflow-hidden">
 		<div class="flex items-center justify-between py-4">
@@ -38,42 +28,13 @@
 			</div>
 		</div>
 
+		<div class="mt-4 block sm:hidden">
+			<InvoiceListMobile invoices={INVOICES} />
+		</div>
 		<div
-			class="overflow-x-auto rounded border border-slate-200 bg-white shadow-sm"
+			class="mt-4 hidden rounded-lg border border-gray-200 bg-white shadow-sm sm:block"
 		>
-			<table class="w-full text-left text-sm text-slate-600">
-				<thead class="bg-primary text-xs uppercase text-white">
-					<tr>
-						<th class="px-6 py-4">No. Invoice</th>
-						<th class="px-6 py-4">Status</th>
-						<th class="px-6 py-4">Klien</th>
-						<th class="px-6 py-4 text-right">Jumlah</th>
-						<th class="px-6 py-4 text-center">Aksi</th>
-					</tr>
-				</thead>
-				<tbody class="divide-y divide-slate-200">
-					{#each INVOICES as invoice}
-						<tr>
-							<td class="whitespace-nowrap px-6 py-4 font-medium text-slate-900"
-								>{invoice.no}</td
-							>
-							<td class="px-6 py-4">
-								<span class={invoice.statusClass}>{invoice.status}</span>
-							</td>
-							<td class="px-6 py-4">{invoice.client}</td>
-							<td class="px-6 py-4 text-right font-semibold"
-								>{invoice.amount}</td
-							>
-							<td class="px-6 py-4 text-center">
-								<a
-									href={invoice.link}
-									class="font-medium text-emerald-600 hover:underline">Lihat</a
-								>
-							</td>
-						</tr>
-					{/each}
-				</tbody>
-			</table>
+			<InvoiceTable invoices={INVOICES} />
 		</div>
 
 		<div class="flex items-center justify-between py-4">
