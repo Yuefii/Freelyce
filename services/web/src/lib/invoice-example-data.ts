@@ -1,11 +1,29 @@
-export const STATS = {
-		revenue: 'Rp 15.750.000',
-		paidInvoices: 8,
-		pendingInvoices: 3,
-		overdueInvoices: 1
-	};
 
-export const INVOICES = [
+export type Stats = {
+  revenue: string;
+  paidInvoices: number;
+  pendingInvoices: number;
+  overdueInvoices: number;
+};
+
+export const STATS: Stats = {
+  revenue: 'Rp 15.750.000',
+  paidInvoices: 8,
+  pendingInvoices: 3,
+  overdueInvoices: 1
+};
+
+
+export type Invoice = {
+  no: string;
+  status: string;
+  statusClass: string;
+  client: string;
+  amount: string;
+  link: string;
+};
+
+export const INVOICES: Invoice[] = [
   {
     no: 'INV-2025-0012',
     status: 'Lunas',
