@@ -1,14 +1,19 @@
 {
+	"semi": true,
 	"useTabs": true,
 	"singleQuote": true,
+	"singleAttributePerLine": true,
+	"htmlWhitespaceSensitivity": "css",
 	"trailingComma": "none",
 	"printWidth": 80,
+	"tabWidth": 2,
 	"plugins": ["prettier-plugin-svelte", "prettier-plugin-tailwindcss"],
 	"overrides": [
 		{
 			"files": "*.svelte",
 			"options": {
-				"parser": "svelte"
+				"parser": "svelte",
+				"tabWidth": 2
 			}
 		}
 	],
