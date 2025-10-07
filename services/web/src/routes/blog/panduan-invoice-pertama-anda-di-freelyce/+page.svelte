@@ -72,7 +72,7 @@
 				<article>
 					<header class="mb-8 border-b border-gray-400 pb-8">
 						<p
-							class="text-sm font-semibold uppercase tracking-wider text-[#7A9E58]"
+							class="text-sm font-semibold tracking-wider text-[#7A9E58] uppercase"
 						>
 							{article.category}
 						</p>
@@ -172,7 +172,7 @@
 							{#each recommendedArticles as recArticle}
 								<div>
 									<p
-										class="text-xs font-semibold uppercase tracking-wider text-[#7A9E58]"
+										class="text-xs font-semibold tracking-wider text-[#7A9E58] uppercase"
 									>
 										{recArticle.category}
 									</p>

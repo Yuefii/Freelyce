@@ -16,10 +16,10 @@
 	class="bg-secondary py-24"
 >
 	<div class="mx-auto max-w-3xl px-6 text-center">
-		<h2 class="text-text-primary text-4xl font-black leading-tight">
+		<h2 class="text-4xl leading-tight font-black text-text-primary">
 			Hubungi Kami
 		</h2>
-		<p class="text-text-secondary mx-auto mt-4 max-w-2xl text-lg">
+		<p class="mx-auto mt-4 max-w-2xl text-lg text-text-secondary">
 			Ada pertanyaan, saran, atau butuh bantuan? Jangan ragu untuk mengisi form
 			di bawah ini.
 		</p>
@@ -32,7 +32,7 @@
 				<div class="sm:col-span-2">
 					<label
 						for="name"
-						class="text-text-primary block text-sm font-semibold leading-6"
+						class="block text-sm leading-6 font-semibold text-text-primary"
 						>Nama Lengkap</label
 					>
 					<div class="mt-2.5">
@@ -41,7 +41,7 @@
 							id="name"
 							bind:value={name}
 							required
-							class="block w-full rounded-md border-0 bg-white px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-[#7A9E58] sm:text-sm sm:leading-6"
+							class="block w-full rounded-md border-0 bg-white px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-gray-300 ring-inset placeholder:text-gray-400 focus:ring-2 focus:ring-[#7A9E58] focus:outline-none focus:ring-inset sm:text-sm sm:leading-6"
 							placeholder="John Doe"
 						/>
 					</div>
@@ -49,7 +49,7 @@
 				<div class="sm:col-span-2">
 					<label
 						for="email"
-						class="text-text-primary block text-sm font-semibold leading-6"
+						class="block text-sm leading-6 font-semibold text-text-primary"
 						>Alamat Email</label
 					>
 					<div class="mt-2.5">
@@ -58,7 +58,7 @@
 							id="email"
 							bind:value={userEmail}
 							required
-							class="block w-full rounded-md border-0 bg-white px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-[#7A9E58] sm:text-sm sm:leading-6"
+							class="block w-full rounded-md border-0 bg-white px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-gray-300 ring-inset placeholder:text-gray-400 focus:ring-2 focus:ring-[#7A9E58] focus:outline-none focus:ring-inset sm:text-sm sm:leading-6"
 							placeholder="anda@email.com"
 						/>
 					</div>
@@ -66,7 +66,7 @@
 				<div class="sm:col-span-2">
 					<label
 						for="message"
-						class="text-text-primary block text-sm font-semibold leading-6"
+						class="block text-sm leading-6 font-semibold text-text-primary"
 						>Pesan Anda</label
 					>
 					<div class="mt-2.5">
@@ -75,7 +75,7 @@
 							bind:value={message}
 							rows="4"
 							required
-							class="block w-full rounded-md border-0 bg-white px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-[#7A9E58] sm:text-sm sm:leading-6"
+							class="block w-full rounded-md border-0 bg-white px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-gray-300 ring-inset placeholder:text-gray-400 focus:ring-2 focus:ring-[#7A9E58] focus:outline-none focus:ring-inset sm:text-sm sm:leading-6"
 							placeholder="Tuliskan pesan Anda di sini..."
 						></textarea>
 					</div>
@@ -84,7 +84,7 @@
 			<div class="mt-10">
 				<button
 					type="submit"
-					class="bg-text-primary block w-full cursor-pointer rounded px-3.5 py-2.5 text-center font-semibold text-white shadow-sm transition-all duration-200 hover:shadow-lg"
+					class="block w-full cursor-pointer rounded bg-text-primary px-3.5 py-2.5 text-center font-semibold text-white shadow-sm transition-all duration-200 hover:shadow-lg"
 				>
 					Kirim Pesan
 				</button>

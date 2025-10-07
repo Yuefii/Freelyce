@@ -3,12 +3,12 @@
 		<header
 			class="mb-8 flex flex-col items-start justify-between sm:flex-row sm:items-center"
 		>
-			<h1 class="text-text-primary mb-4 text-3xl font-extrabold sm:mb-0">
+			<h1 class="mb-4 text-3xl font-extrabold text-text-primary sm:mb-0">
 				Buat Invoice Baru
 			</h1>
 			<div class="flex items-center gap-3">
 				<button
-					class="bg-primary cursor-pointer rounded px-5 py-2.5 text-sm font-semibold text-white transition-all duration-200 hover:scale-105 hover:shadow-lg"
+					class="cursor-pointer rounded bg-primary px-5 py-2.5 text-sm font-semibold text-white transition-all duration-200 hover:scale-105 hover:shadow-lg"
 				>
 					Simpan & Preview
 				</button>
@@ -20,10 +20,10 @@
 		>
 			<section class="grid gap-8 md:grid-cols-3">
 				<div class="space-y-4 md:col-span-2">
-					<h2 class="text-text-primary text-lg font-bold">Tagihan Untuk:</h2>
+					<h2 class="text-lg font-bold text-text-primary">Tagihan Untuk:</h2>
 					<div>
 						<select
-							class="text-text-primary w-full rounded border border-slate-300 bg-white px-4 py-2.5 text-sm transition focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200"
+							class="w-full rounded border border-slate-300 bg-white px-4 py-2.5 text-sm text-text-primary transition focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200"
 						>
 							<option
 								disabled
@@ -36,7 +36,7 @@
 						<p class="mt-2 text-xs text-slate-500">
 							atau <a
 								href="/#"
-								class="text-primary font-semibold hover:underline"
+								class="font-semibold text-primary hover:underline"
 								>Tambah Klien Baru</a
 							>
 						</p>
@@ -44,7 +44,7 @@
 					<textarea
 						rows="3"
 						placeholder="Detail alamat klien akan muncul di sini..."
-						class="text-text-primary w-full rounded border border-slate-300 bg-white px-4 py-2.5 text-sm transition focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200"
+						class="w-full rounded border border-slate-300 bg-white px-4 py-2.5 text-sm text-text-primary transition focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200"
 					></textarea>
 				</div>
 				<div class="space-y-4">
@@ -57,7 +57,7 @@
 							type="text"
 							id="invoice-number"
 							value="INV-2025-0013"
-							class="text-text-primary rounded border border-slate-300 bg-white px-4 py-2.5 text-sm transition focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200"
+							class="rounded border border-slate-300 bg-white px-4 py-2.5 text-sm text-text-primary transition focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200"
 						/>
 					</div>
 					<div class="flex flex-col gap-2">
@@ -69,7 +69,7 @@
 							type="date"
 							id="issue-date"
 							value="2025-10-07"
-							class="text-text-primary rounded border border-slate-300 bg-white px-4 py-2.5 text-sm transition focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200"
+							class="rounded border border-slate-300 bg-white px-4 py-2.5 text-sm text-text-primary transition focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200"
 						/>
 					</div>
 					<div class="flex flex-col gap-2">
@@ -81,7 +81,7 @@
 						<input
 							type="date"
 							id="due-date"
-							class="text-text-primary rounded border border-slate-300 bg-white px-4 py-2.5 text-sm transition focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200"
+							class="rounded border border-slate-300 bg-white px-4 py-2.5 text-sm text-text-primary transition focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200"
 						/>
 					</div>
 				</div>
@@ -91,7 +91,7 @@
 				<h2 class="mb-4 text-lg font-bold text-slate-800">Detail Item</h2>
 				<div class="overflow-x-auto">
 					<table class="w-full text-left text-sm">
-						<thead class="bg-slate-50 text-xs uppercase text-slate-500">
+						<thead class="bg-slate-50 text-xs text-slate-500 uppercase">
 							<tr>
 								<th class="w-1/2 px-4 py-3">Deskripsi</th>
 								<th class="px-4 py-3">Jumlah</th>
@@ -123,7 +123,7 @@
 										class="w-36 rounded-md border border-slate-300 p-2 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-200"
 									/></td
 								>
-								<td class="text-text-primary p-2 text-right font-semibold"
+								<td class="p-2 text-right font-semibold text-text-primary"
 									>Rp 5.000.000</td
 								>
 								<td class="p-2 text-center">
@@ -156,7 +156,7 @@
 										class="w-36 rounded-md border border-slate-300 p-2 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-200"
 									/></td
 								>
-								<td class="text-text-primary p-2 text-right font-semibold"
+								<td class="p-2 text-right font-semibold text-text-primary"
 									>Rp 2.500.000</td
 								>
 								<td class="p-2 text-center">
@@ -172,7 +172,7 @@
 				</div>
 				<button
 					type="button"
-					class="border-primary bg-secondary text-primary mt-4 w-full cursor-pointer rounded border-2 border-dashed py-3 text-sm font-semibold transition-colors hover:opacity-80"
+					class="mt-4 w-full cursor-pointer rounded border-2 border-dashed border-primary bg-secondary py-3 text-sm font-semibold text-primary transition-colors hover:opacity-80"
 				>
 					+ Tambah Baris
 				</button>
@@ -184,23 +184,23 @@
 					<textarea
 						rows="4"
 						placeholder="Contoh: Pembayaran dapat dilakukan melalui transfer ke rekening BCA 12345678 a/n Freelyce."
-						class="text-text-primary w-full rounded border border-slate-300 bg-white px-4 py-2.5 text-sm transition focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200"
+						class="w-full rounded border border-slate-300 bg-white px-4 py-2.5 text-sm text-text-primary transition focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200"
 					></textarea>
 				</div>
 				<div class="space-y-4 md:ml-auto md:w-4/5">
 					<div class="flex items-center justify-between">
 						<span class="text-sm text-slate-500">Subtotal</span>
-						<strong class="text-text-primary font-semibold">Rp 7.500.000</strong
+						<strong class="font-semibold text-text-primary">Rp 7.500.000</strong
 						>
 					</div>
 					<div class="flex items-center justify-between">
 						<span class="text-sm text-slate-500">Pajak (11%)</span>
-						<strong class="text-text-primary font-semibold">Rp 825.000</strong>
+						<strong class="font-semibold text-text-primary">Rp 825.000</strong>
 					</div>
 					<div class="my-2 border-t border-slate-200"></div>
 					<div class="flex items-center justify-between">
 						<span class="text-base font-bold text-slate-800">Total</span>
-						<strong class="text-primary text-2xl font-extrabold"
+						<strong class="text-2xl font-extrabold text-primary"
 							>Rp 8.325.000</strong
 						>
 					</div>
