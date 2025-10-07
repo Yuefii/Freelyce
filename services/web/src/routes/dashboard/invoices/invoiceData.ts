@@ -1,3 +1,10 @@
+export const STATS = {
+		revenue: 'Rp 15.750.000',
+		paidInvoices: 8,
+		pendingInvoices: 3,
+		overdueInvoices: 1
+	};
+
 export const INVOICES = [
   {
     no: 'INV-2025-0012',
