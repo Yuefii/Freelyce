@@ -2,15 +2,17 @@
 	<div
 		class="flex min-h-screen flex-col items-center justify-center px-6 py-12"
 	>
-		<div class="w-full max-w-md border border-gray-200 bg-white p-8 shadow-sm">
-			<h2 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">
+		<div
+			class="w-full max-w-md rounded border border-slate-200 bg-white p-8 shadow-sm"
+		>
+			<h2 class="text-text-primary mb-2 text-2xl font-bold tracking-tight">
 				Buat Akun Baru
 			</h2>
-			<p class="text-sm text-gray-600">
+			<p class="text-text-secondary text-sm">
 				Sudah punya akun?
 				<a
 					href="/auth/sign-in"
-					class="font-medium text-black transition-colors hover:underline"
+					class="text-text-primary font-medium transition-colors hover:underline"
 				>
 					Masuk di sini
 				</a>
@@ -27,7 +29,7 @@
 							name="name"
 							type="text"
 							required
-							class="block w-full appearance-none border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-black focus:ring-black focus:outline-none sm:text-sm"
+							class="focus:border-primary focus:ring-primary block w-full appearance-none rounded border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:outline-none sm:text-sm"
 						/>
 					</div>
 				</div>
@@ -43,7 +45,7 @@
 							type="email"
 							autocomplete="email"
 							required
-							class="block w-full appearance-none border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-black focus:ring-black focus:outline-none sm:text-sm"
+							class="focus:border-primary focus:ring-primary block w-full appearance-none rounded border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:outline-none sm:text-sm"
 						/>
 					</div>
 				</div>
@@ -59,7 +61,7 @@
 							type="password"
 							autocomplete="new-password"
 							required
-							class="block w-full appearance-none border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-black focus:ring-black focus:outline-none sm:text-sm"
+							class="focus:border-primary focus:ring-primary block w-full appearance-none rounded border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:outline-none sm:text-sm"
 						/>
 					</div>
 				</div>
@@ -78,7 +80,7 @@
 							type="confirm-password"
 							autocomplete="new-password"
 							required
-							class="block w-full appearance-none border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-black focus:ring-black focus:outline-none sm:text-sm"
+							class="focus:border-primary focus:ring-primary block w-full appearance-none rounded border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:outline-none sm:text-sm"
 						/>
 					</div>
 				</div>
@@ -86,7 +88,7 @@
 				<div>
 					<button
 						type="submit"
-						class="flex w-full justify-center border border-transparent bg-black px-4 py-3 text-sm font-medium text-white shadow-sm transition-colors hover:bg-gray-800 focus:ring-2 focus:ring-black focus:ring-offset-2 focus:outline-none"
+						class="bg-primary flex w-full cursor-pointer justify-center rounded border border-transparent px-4 py-3 text-sm font-medium text-white shadow-sm transition-colors hover:opacity-80"
 					>
 						Buat Akun
 					</button>
