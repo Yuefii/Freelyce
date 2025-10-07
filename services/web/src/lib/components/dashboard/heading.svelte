@@ -18,7 +18,7 @@
 	</div>
 	<a
 		href="/dashboard/invoices/create"
-		class="mt-4 flex items-center gap-2 rounded bg-primary px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:opacity-80 focus:ring-4 focus:ring-emerald-200 sm:mt-0"
+		class="bg-primary mt-4 flex items-center gap-2 rounded px-5 py-2.5 text-sm font-semibold text-white transition-all duration-200 hover:scale-105 hover:shadow-lg sm:mt-0"
 	>
 		<Plus class="h-5 w-5" />
 		Buat Invoice Baru

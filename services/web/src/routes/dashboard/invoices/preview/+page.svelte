@@ -7,23 +7,23 @@
 		<div class="flex flex-col items-center justify-between gap-4 sm:flex-row">
 			<a
 				href="/dashboard/invoices"
-				class="text-sm font-semibold text-text-primary hover:underline"
+				class="text-text-primary text-sm font-semibold hover:underline"
 			>
 				&larr; Kembali ke Daftar Invoice
 			</a>
 			<div class="flex items-center gap-3">
 				<button
-					class="rounded border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-700 transition-colors hover:bg-slate-50"
+					class="text-text-primary cursor-pointer rounded border border-slate-300 bg-white px-4 py-2 text-sm font-semibold transition-all duration-200 hover:scale-105 hover:shadow-lg"
 				>
 					Edit
 				</button>
 				<button
-					class="rounded border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-700 transition-colors hover:bg-slate-50"
+					class="text-text-primary cursor-pointer rounded border border-slate-300 bg-white px-4 py-2 text-sm font-semibold transition-all duration-200 hover:scale-105 hover:shadow-lg"
 				>
 					Kirim
 				</button>
 				<button
-					class="rounded bg-emerald-600 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-emerald-700"
+					class="bg-primary cursor-pointer rounded px-4 py-2 text-sm font-semibold text-white transition-all duration-200 hover:scale-105 hover:shadow-lg"
 				>
 					Download PDF
 				</button>
@@ -38,14 +38,14 @@
 			class="flex items-start justify-between border-b border-slate-200 pb-8"
 		>
 			<div>
-				<div class="mb-5 text-2xl font-extrabold text-emerald-600">
+				<div class="mb-5">
 					<img
 						class="h-20 w-full"
 						src={logo}
 						alt="logo"
 					/>
 				</div>
-				<p class="text-sm text-text-secondary">
+				<p class="text-text-secondary text-sm">
 					Jl. Freelancer No. 123<br />
 					Kota Kreatif, 15412<br />
 					hello@freelyce.com
@@ -53,21 +53,21 @@
 			</div>
 			<div class="text-right">
 				<h1
-					class="text-3xl font-extrabold tracking-wide text-text-primary uppercase sm:text-4xl"
+					class="text-text-primary text-3xl font-extrabold uppercase tracking-wide sm:text-4xl"
 				>
 					Invoice
 				</h1>
-				<p class="mt-1 text-sm text-text-secondary">#INV-2025-0012</p>
+				<p class="text-text-secondary mt-1 text-sm">#INV-2025-0012</p>
 			</div>
 		</header>
 
 		<section class="mt-8 flex items-start justify-between">
 			<div>
-				<h2 class="mb-2 text-sm font-semibold text-text-primary uppercase">
+				<h2 class="text-text-primary mb-2 text-sm font-semibold uppercase">
 					Ditagihkan Kepada:
 				</h2>
-				<p class="font-bold text-slate-800">PT Teknologi Maju</p>
-				<p class="text-sm text-text-secondary">
+				<p class="text-text-primary font-bold">PT Teknologi Maju</p>
+				<p class="text-text-secondary text-sm">
 					Jl. Inovasi Digital Blok A1<br />
 					Jakarta Selatan, 12345<br />
 					finance@teknologimaju.com
@@ -75,19 +75,19 @@
 			</div>
 			<div class="text-right">
 				<div class="mb-2">
-					<span class="text-sm font-semibold text-text-primary uppercase"
+					<span class="text-text-primary text-sm font-semibold uppercase"
 						>Tanggal Terbit:
 					</span>
-					<span class="font-medium text-slate-800">7 Oktober 2025</span>
+					<span class="text-text-primary font-medium">7 Oktober 2025</span>
 				</div>
 				<div>
-					<span class="text-sm font-semibold text-text-primary uppercase"
+					<span class="text-text-primary text-sm font-semibold uppercase"
 						>Jatuh Tempo:
 					</span>
-					<span class="font-medium text-slate-800">21 Oktober 2025</span>
+					<span class="text-text-primary font-medium">21 Oktober 2025</span>
 				</div>
 				<div class="mt-2">
-					<span class="text-sm font-semibold text-text-primary uppercase"
+					<span class="text-text-primary text-sm font-semibold uppercase"
 						>Status:
 					</span>
 					<span
@@ -104,19 +104,19 @@
 				<table class="w-full text-left">
 					<thead class="bg-slate-50">
 						<tr>
-							<th class="p-3 text-sm font-semibold text-text-primary uppercase"
+							<th class="text-text-primary p-3 text-sm font-semibold uppercase"
 								>Deskripsi</th
 							>
 							<th
-								class="w-24 p-3 text-center text-sm font-semibold text-text-primary uppercase"
+								class="text-text-primary w-24 p-3 text-center text-sm font-semibold uppercase"
 								>Jumlah</th
 							>
 							<th
-								class="w-36 p-3 text-right text-sm font-semibold text-text-primary uppercase"
+								class="text-text-primary w-36 p-3 text-right text-sm font-semibold uppercase"
 								>Harga Satuan</th
 							>
 							<th
-								class="w-40 p-3 text-right text-sm font-semibold text-text-primary uppercase"
+								class="text-text-primary w-40 p-3 text-right text-sm font-semibold uppercase"
 								>Total</th
 							>
 						</tr>
@@ -124,10 +124,10 @@
 					<tbody class="divide-y divide-slate-200">
 						<tr>
 							<td class="p-3 align-top">
-								<p class="font-semibold text-slate-800">
+								<p class="text-text-primary font-semibold">
 									Pengembangan Website E-commerce
 								</p>
-								<p class="mt-1 text-xs text-text-secondary">
+								<p class="text-text-secondary mt-1 text-xs">
 									Fitur lengkap termasuk payment gateway dan manajemen produk.
 								</p>
 							</td>
@@ -144,10 +144,10 @@
 
 		<section class="mt-8 flex items-start justify-between">
 			<div class="w-1/2 pr-10">
-				<h3 class="mb-2 text-sm font-semibold text-text-primary uppercase">
+				<h3 class="text-text-primary mb-2 text-sm font-semibold uppercase">
 					Catatan:
 				</h3>
-				<p class="text-xs text-text-secondary">
+				<p class="text-text-secondary text-xs">
 					Pembayaran dapat dilakukan melalui transfer ke rekening BCA 12345678
 					a/n Freelyce. Terima kasih atas kerja samanya.
 				</p>
@@ -155,17 +155,17 @@
 			<div class="ml-auto w-1/2 max-w-xs">
 				<div class="space-y-3">
 					<div class="flex justify-between">
-						<span class="text-sm text-text-secondary">Subtotal</span>
-						<span class="font-medium text-slate-800">Rp 5.000.000</span>
+						<span class="text-text-secondary text-sm">Subtotal</span>
+						<span class="text-text-primary font-medium">Rp 5.000.000</span>
 					</div>
 					<div class="flex justify-between">
-						<span class="text-sm text-text-secondary">Pajak (11%)</span>
-						<span class="font-medium text-slate-800">Rp 550.000</span>
+						<span class="text-text-secondary text-sm">Pajak (11%)</span>
+						<span class="text-text-primary font-medium">Rp 550.000</span>
 					</div>
 					<div class="my-2 border-t border-slate-200"></div>
 					<div class="flex items-center justify-between">
-						<span class="font-bold text-slate-800">Total Tagihan</span>
-						<span class="text-2xl font-extrabold text-emerald-600"
+						<span class="text-text-primary font-bold">Total Tagihan</span>
+						<span class="text-primary text-2xl font-extrabold"
 							>Rp 5.550.000</span
 						>
 					</div>
