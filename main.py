@@ -7,8 +7,11 @@ from typing import List, Optional
 from io import BytesIO
 from reportlab.pdfgen import canvas
 from reportlab.lib.pagesizes import letter
+from reportlab.lib.utils import ImageReader
 import datetime
 import random
+import base64
+from PIL import Image
 
 class Item(BaseModel):
     description: str
@@ -27,6 +30,7 @@ class InvoiceData(BaseModel):
     items: List[Item]
     notes: Optional[str] = None
     tax_rate: float = 0.0
+    logo: Optional[str] = None
 
 app = FastAPI()
 
@@ -44,30 +48,51 @@ async def generate_invoice(invoice_data: InvoiceData):
     buffer = BytesIO()
     p = canvas.Canvas(buffer, pagesize=letter)
     width, height = letter
+    draw_height = 0
 
     p.setFont("Helvetica-Bold", 18)
     p.drawString(50, height - 50, "INVOICE")
+    p.drawRightString(width - 50, height - 50, f"#{invoice_data.invoice_number}")
 
-    p.drawRightString(width - 50, height - 45, f"#{invoice_data.invoice_number}")
+    y_after_title = height - 70
+    if invoice_data.logo:
+        try:
+            header, encoded = invoice_data.logo.split(",", 1)
+            image_data = base64.b64decode(encoded)
+            image_file = BytesIO(image_data)
+            img = Image.open(image_file)
+            
+            img_width, img_height = img.size
+            aspect = img_height / float(img_width)
+            draw_width = 70
+            draw_height = draw_width * aspect
+            
+            p.drawImage(ImageReader(img), 50, y_after_title - draw_height, width=draw_width, height=draw_height, mask='auto')
+        except Exception as e:
+            print(f"Error processing logo: {e}")
+
+    y_position = y_after_title - draw_height - 20
 
     p.setFont("Helvetica-Bold", 10)
-    p.drawString(50, height - 100, "Dari:")
-    p.drawString(250, height - 100, "Tagihan Untuk:")
+    p.drawString(50, y_position, "Dari:")
+    p.drawString(250, y_position, "Tagihan Untuk:")
 
     p.setFont("Helvetica", 10)
     from_address_lines = invoice_data.from_address.split('\n')
-    y = height - 115
+    y = y_position - 15
     for line in from_address_lines:
         p.drawString(50, y, line)
         y -= 15
+    from_address_end_y = y
 
     bill_to_address_lines = invoice_data.bill_to_address.split('\n')
-    y = height - 115
+    y = y_position - 15
     for line in bill_to_address_lines:
         p.drawString(250, y, line)
         y -= 15
+    bill_to_address_end_y = y
 
-    info_y = height - 100
+    info_y = y_position
     p.setFont("Helvetica-Bold", 10)
     p.drawRightString(width - 150, info_y, "Tanggal:")
     p.drawRightString(width - 150, info_y - 20, "Jatuh Tempo:")
@@ -80,8 +105,7 @@ async def generate_invoice(invoice_data: InvoiceData):
     if invoice_data.po_number:
         p.drawRightString(width - 50, info_y - 40, invoice_data.po_number)
 
-
-    header_y = height - 250
+    header_y = min(from_address_end_y, bill_to_address_end_y) - 40
     p.setFont("Helvetica-Bold", 10)
     p.drawString(50, header_y, "Barang/Jasa")
     p.drawRightString(width - 250, header_y, "Jumlah")

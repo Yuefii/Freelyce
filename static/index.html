@@ -154,11 +154,20 @@
 
         <div id="invoice-form" class="max-w-5xl mx-auto card p-6 md:p-10 fade-in" style="animation-delay: 200ms;">
             
-            <div class="flex flex-col md:flex-row justify-between md:items-center mb-8 md:mb-12">
+            <div class="flex flex-col md:flex-row justify-between md:items-center mb-4">
                 <h2 class="text-2xl md:text-3xl font-bold tracking-tight">INVOICE</h2>
                 <div class="flex items-center mt-4 md:mt-0">
                     <span class="text-lg font-semibold mr-2">#</span>
                     <input type="text" id="invoice-number" class="input w-48 text-lg" readonly>
+                </div>
+            </div>
+
+            <div class="mb-8 md:mb-12">
+                <div class="w-32">
+                    <img id="logo-preview" class="hidden w-full h-auto mb-2" alt="Logo Preview">
+                    <input type="file" id="logo-input" class="hidden" accept="image/*">
+                    <button id="add-logo" class="btn btn-secondary btn-sm w-full text-xs">Tambah Logo</button>
+                    <button id="remove-logo" class="btn btn-secondary btn-sm w-full hidden mt-1 text-xs">Hapus Logo</button>
                 </div>
             </div>
 
@@ -279,6 +288,38 @@
             const downloadPdfBtn = document.getElementById('download-pdf');
             const navbar = document.getElementById('navbar');
             const ctaButton = document.getElementById('cta-button');
+            const logoInput = document.getElementById('logo-input');
+            const logoPreview = document.getElementById('logo-preview');
+            const addLogoBtn = document.getElementById('add-logo');
+            const removeLogoBtn = document.getElementById('remove-logo');
+
+            addLogoBtn.addEventListener('click', () => logoInput.click());
+
+            removeLogoBtn.addEventListener('click', () => {
+                logoInput.value = '';
+                logoPreview.src = '';
+                logoPreview.classList.add('hidden');
+                addLogoBtn.classList.remove('hidden');
+                removeLogoBtn.classList.add('hidden');
+                if (logoPreview.src) {
+                    URL.revokeObjectURL(logoPreview.src);
+                }
+            });
+
+            logoInput.addEventListener('change', () => {
+                const file = logoInput.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = (e) => {
+                        logoPreview.src = e.target.result;
+                        logoPreview.classList.remove('hidden');
+                        addLogoBtn.classList.add('hidden');
+                        removeLogoBtn.classList.remove('hidden');
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
+
 
             window.addEventListener('scroll', () => {
                 if (window.scrollY > 10) {
@@ -368,6 +409,9 @@
                 this.textContent = 'Memproses...';
                 this.disabled = true;
 
+                const logoPreview = document.getElementById('logo-preview');
+                const logoSrc = logoPreview.src.startsWith('data:image') ? logoPreview.src : null;
+
                 const invoiceData = {
                     invoice_number: document.getElementById('invoice-number').value,
                     from_address: document.getElementById('from-address').value,
@@ -380,6 +424,7 @@
                     items: [],
                     notes: document.getElementById('notes').value,
                     tax_rate: parseFloat(document.getElementById('tax-rate').value) || 0,
+                    logo: logoSrc,
                 };
 
                 document.querySelectorAll('.item-row').forEach(row => {
