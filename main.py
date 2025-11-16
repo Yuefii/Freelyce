@@ -22,6 +22,10 @@ async def generate_invoice(invoice_data: Invoice):
 async def get_index():
     return FileResponse('static/index.html', media_type='text/html')
 
+@app.get("/helper")
+async def get_helper():
+    return FileResponse('static/helper.html', media_type='text/html')
+
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
 if __name__ == "__main__":
