@@ -2,7 +2,7 @@ from pydantic import BaseModel
 from typing import List, Optional
 from core.models.item import Item
 
-class InvoiceData(BaseModel):
+class Invoice(BaseModel):
     invoice_number: str
     from_address: str
     bill_to_address: str
