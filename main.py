@@ -2,7 +2,7 @@ import uvicorn
 from fastapi import FastAPI, Response
 from fastapi.responses import FileResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
-from core.models import InvoiceData
+from core.schemas.invoice import Invoice
 from core.services.pdf_service import generate_invoice_number, generate_invoice_pdf
 
 app = FastAPI()
@@ -12,7 +12,7 @@ async def next_invoice_number():
     return JSONResponse({"invoice_number": generate_invoice_number()})
 
 @app.post("/invoice")
-async def generate_invoice(invoice_data: InvoiceData):
+async def generate_invoice(invoice_data: Invoice):
     buffer = generate_invoice_pdf(invoice_data)
     return Response(content=buffer.getvalue(), media_type="application/pdf", headers={
         "Content-Disposition": f"attachment; filename=invoice-{invoice_data.invoice_number}.pdf"

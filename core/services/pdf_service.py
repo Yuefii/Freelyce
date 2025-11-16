@@ -6,14 +6,14 @@ from PIL import Image
 from reportlab.pdfgen import canvas
 from reportlab.lib.pagesizes import letter
 from reportlab.lib.utils import ImageReader
-from ..models.invoice_data import InvoiceData
+from core.schemas.invoice import Invoice
 
 def generate_invoice_number():
     year = datetime.datetime.now().year
     random_part = ''.join([str(random.randint(0, 9)) for _ in range(10)])
     return f"INV/{year}/{random_part}"
 
-def generate_invoice_pdf(invoice_data: InvoiceData):
+def generate_invoice_pdf(invoice_data: Invoice):
     buffer = BytesIO()
     p = canvas.Canvas(buffer, pagesize=letter)
     width, height = letter

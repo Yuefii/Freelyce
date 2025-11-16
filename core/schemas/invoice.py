@@ -1,6 +1,6 @@
 from pydantic import BaseModel
 from typing import List, Optional
-from core.models.item import Item
+from core.schemas.item import Item
 
 class Invoice(BaseModel):
     invoice_number: str
