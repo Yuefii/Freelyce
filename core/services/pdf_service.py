@@ -19,6 +19,22 @@ def generate_invoice_pdf(invoice_data: Invoice):
     width, height = letter
     draw_height = 0
 
+    def wrap_text(text, font_name, font_size, max_width, canvas_obj):
+        lines = []
+        if not text:
+            return [""]
+        words = text.split(' ')
+        current_line = []
+        for word in words:
+            test_line = " ".join(current_line + [word])
+            if canvas_obj.stringWidth(test_line, font_name, font_size) <= max_width:
+                current_line.append(word)
+            else:
+                lines.append(" ".join(current_line))
+                current_line = [word]
+        lines.append(" ".join(current_line))
+        return lines
+
     p.setFont("Helvetica-Bold", 18)
     p.drawString(50, height - 50, "INVOICE")
     p.drawRightString(width - 50, height - 50, f"#{invoice_data.invoice_number}")
@@ -44,20 +60,28 @@ def generate_invoice_pdf(invoice_data: Invoice):
 
     p.setFont("Helvetica-Bold", 10)
     p.drawString(50, y_position, "Dari:")
-    p.drawString(250, y_position, "Tagihan Untuk:")
+    p.drawString(220, y_position, "Tagihan Untuk:")
 
     p.setFont("Helvetica", 10)
-    from_address_lines = invoice_data.from_address.split('\n')
+    from_address_max_width = 150 
+    from_address_lines = []
+    for line in invoice_data.from_address.split('\n'):
+        from_address_lines.extend(wrap_text(line, "Helvetica", 10, from_address_max_width, p))
+    
     y = y_position - 15
     for line in from_address_lines:
         p.drawString(50, y, line)
         y -= 15
     from_address_end_y = y
 
-    bill_to_address_lines = invoice_data.bill_to_address.split('\n')
+    bill_to_address_max_width = 150
+    bill_to_address_lines = []
+    for line in invoice_data.bill_to_address.split('\n'):
+        bill_to_address_lines.extend(wrap_text(line, "Helvetica", 10, bill_to_address_max_width, p))
+
     y = y_position - 15
     for line in bill_to_address_lines:
-        p.drawString(250, y, line)
+        p.drawString(220, y, line)
         y -= 15
     bill_to_address_end_y = y
 
