@@ -2,5 +2,5 @@ from pydantic import BaseModel
 
 class Item(BaseModel):
     description: str
-    quantity: float
+    quantity: int
     rate: float
