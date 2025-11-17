@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const itemList = document.getElementById('item-list');
+    const itemListDesktop = document.getElementById('item-list-desktop');
+    const itemListMobile = document.getElementById('item-list-mobile');
     const addLineItemBtn = document.getElementById('add-line-item');
     const downloadPdfBtn = document.getElementById('download-pdf');
     const navbar = document.getElementById('navbar');
@@ -66,7 +67,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function calculateTotals() {
         let subtotal = 0;
-        document.querySelectorAll('.item-row').forEach(row => {
+        document.querySelectorAll('.item-row, .item-row-mobile').forEach(row => {
             const quantity = parseFloat(row.querySelector('.item-quantity').value) || 0;
             const rate = parseFloat(row.querySelector('.item-rate').value) || 0;
             const amount = quantity * rate;
@@ -98,7 +99,7 @@ document.addEventListener('DOMContentLoaded', function() {
         row.querySelector('.item-rate').addEventListener('input', calculateTotals);
     }
 
-    function createNewRow() {
+    function createNewDesktopRow() {
         const newRow = document.createElement('tr');
         newRow.classList.add('item-row', 'border-b', 'border-border');
         newRow.innerHTML = `
@@ -116,10 +117,58 @@ document.addEventListener('DOMContentLoaded', function() {
             </td>
         `;
         addEventListenersToRow(newRow);
-        itemList.appendChild(newRow);
+        itemListDesktop.appendChild(newRow);
     }
 
-    addLineItemBtn.addEventListener('click', createNewRow);
+    function createNewMobileRow() {
+        const newRow = document.createElement('div');
+        newRow.classList.add('p-4', 'border', 'border-border', 'rounded-xl', 'shadow-sm', 'item-row-mobile', 'bg-white');
+        newRow.innerHTML = `
+            <label class="text-xs font-medium text-muted mb-1 block">Item</label>
+            <input
+                type="text"
+                placeholder="Deskripsi item / layanan..."
+                class="item-description input border px-3 py-2 w-full rounded-lg"
+            />
+
+            <div class="grid grid-cols-2 gap-4 mt-4">
+                <div>
+                    <label class="text-xs font-medium block mb-1">Jumlah</label>
+                    <input
+                        type="number"
+                        placeholder="1"
+                        class="item-quantity input border px-3 py-2 w-full rounded-lg text-right"
+                        value="1"
+                    />
+                </div>
+
+                <div>
+                    <label class="text-xs font-medium block mb-1">Harga</label>
+                    <input
+                        type="number"
+                        placeholder="0"
+                        class="item-rate input border px-3 py-2 w-full rounded-lg text-right"
+                        value=""
+                    />
+                </div>
+            </div>
+
+            <div class="flex justify-between items-center mt-4">
+                <span class="text-sm text-gray-600">Total</span>
+                <span class="item-amount text-lg font-semibold">Rp0</span>
+            </div>
+        `;
+        addEventListenersToRow(newRow);
+        itemListMobile.appendChild(newRow);
+    }
+
+    addLineItemBtn.addEventListener('click', () => {
+        if (window.innerWidth < 640) {
+            createNewMobileRow();
+        } else {
+            createNewDesktopRow();
+        }
+    });
 
     downloadPdfBtn.addEventListener('click', async function() {
         this.textContent = 'Memproses...';
@@ -143,7 +192,7 @@ document.addEventListener('DOMContentLoaded', function() {
             logo: logoSrc,
         };
 
-        document.querySelectorAll('.item-row').forEach(row => {
+        document.querySelectorAll('.item-row, .item-row-mobile').forEach(row => {
             const description = row.querySelector('.item-description').value;
             if (description) {
                 invoiceData.items.push({
@@ -184,7 +233,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    document.querySelectorAll('.item-row').forEach(addEventListenersToRow);
+    document.querySelectorAll('.item-row, .item-row-mobile').forEach(addEventListenersToRow);
     document.getElementById('tax-rate').addEventListener('input', calculateTotals);
     document.getElementById('discount').addEventListener('input', calculateTotals);
     document.getElementById('discount-type').addEventListener('change', calculateTotals);

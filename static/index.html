@@ -192,7 +192,7 @@
         </div>
 
         <div class="mb-12">
-          <div class="overflow-x-auto">
+          <div class="hidden sm:block overflow-x-auto">
             <table class="w-full">
               <thead class="border-b border-border">
                 <tr class="text-left text-sm font-semibold">
@@ -202,38 +202,87 @@
                   <th class="p-2 w-32 text-right">Total</th>
                 </tr>
               </thead>
-              <tbody id="item-list">
+
+              <tbody id="item-list-desktop">
                 <tr class="item-row border-b border-border">
                   <td class="p-2">
                     <input
                       type="text"
                       placeholder="Deskripsi item/layanan..."
-                      class="item-description input bg-transparent border-0 focus:ring-0 px-0"
+                      class="item-description input bg-transparent border-0 focus:ring-0 px-0 w-full"
                     />
                   </td>
+
                   <td class="p-2">
                     <input
                       type="number"
                       placeholder="1"
-                      class="item-quantity input text-right"
+                      class="item-quantity input text-right w-full"
                       value="1"
                     />
                   </td>
+
                   <td class="p-2">
                     <input
                       type="number"
                       placeholder="0"
-                      class="item-rate input text-right"
+                      class="item-rate input text-right w-full"
                       value=""
                     />
                   </td>
+
                   <td class="p-2 text-right font-medium item-amount">Rp0</td>
                 </tr>
               </tbody>
             </table>
           </div>
 
-          <button id="add-line-item" class="btn btn-secondary mt-4">
+          <div id="item-list-mobile" class="sm:hidden space-y-4">
+            <div
+              class="p-4 border border-border rounded-xl shadow-sm item-row-mobile bg-white"
+            >
+              <label class="text-xs font-medium text-muted mb-1 block"
+                >Item</label
+              >
+              <input
+                type="text"
+                placeholder="Deskripsi item / layanan..."
+                class="item-description input border px-3 py-2 w-full rounded-lg"
+              />
+
+              <div class="grid grid-cols-2 gap-4 mt-4">
+                <div>
+                  <label class="text-xs font-medium block mb-1">Jumlah</label>
+                  <input
+                    type="number"
+                    placeholder="1"
+                    class="item-quantity input border px-3 py-2 w-full rounded-lg text-right"
+                    value="1"
+                  />
+                </div>
+
+                <div>
+                  <label class="text-xs font-medium block mb-1">Harga</label>
+                  <input
+                    type="number"
+                    placeholder="0"
+                    class="item-rate input border px-3 py-2 w-full rounded-lg text-right"
+                    value=""
+                  />
+                </div>
+              </div>
+
+              <div class="flex justify-between items-center mt-4">
+                <span class="text-sm text-gray-600">Total</span>
+                <span class="item-amount text-lg font-semibold">Rp0</span>
+              </div>
+            </div>
+          </div>
+
+          <button
+            id="add-line-item"
+            class="btn btn-secondary mt-4 w-full sm:w-auto"
+          >
             + Tambah Baris Item
           </button>
         </div>
