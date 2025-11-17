@@ -1,6 +1,7 @@
 import datetime
 import random
 import base64
+import requests
 from io import BytesIO
 from PIL import Image
 from reportlab.pdfgen import canvas
@@ -41,18 +42,28 @@ def generate_invoice_pdf(invoice_data: Invoice):
 
     y_after_title = height - 70
     if invoice_data.logo:
+        image_file = None
         try:
-            header, encoded = invoice_data.logo.split(",", 1)
-            image_data = base64.b64decode(encoded)
-            image_file = BytesIO(image_data)
-            img = Image.open(image_file)
+            if invoice_data.logo.startswith("http"):
+                response = requests.get(invoice_data.logo)
+                response.raise_for_status()
+                image_file = BytesIO(response.content)
+            else:
+                header, encoded = invoice_data.logo.split(",", 1)
+                image_data = base64.b64decode(encoded)
+                image_file = BytesIO(image_data)
             
-            img_width, img_height = img.size
-            aspect = img_height / float(img_width)
-            draw_width = 70
-            draw_height = draw_width * aspect
-            
-            p.drawImage(ImageReader(img), 50, y_after_title - draw_height, width=draw_width, height=draw_height, mask='auto')
+            if image_file:
+                img = Image.open(image_file)
+                
+                img_width, img_height = img.size
+                aspect = img_height / float(img_width)
+                draw_width = 70
+                draw_height = draw_width * aspect
+                
+                p.drawImage(ImageReader(img), 50, y_after_title - draw_height, width=draw_width, height=draw_height, mask='auto')
+        except requests.exceptions.RequestException as e:
+            print(f"Error downloading logo from URL: {e}")
         except Exception as e:
             print(f"Error processing logo: {e}")
 
