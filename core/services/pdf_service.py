@@ -69,8 +69,25 @@ def generate_invoice_pdf(invoice_data: Invoice):
         p.drawRightString(width - 150, info_y - 40, "Nomor PO:")
 
     p.setFont("Helvetica", 10)
-    p.drawRightString(width - 50, info_y, invoice_data.date)
-    p.drawRightString(width - 50, info_y - 20, invoice_data.due_date)
+    
+    def format_date_to_indonesian(date_str):
+        if not date_str:
+            return ""
+        try:
+            date_obj = datetime.datetime.strptime(date_str, "%Y-%m-%d")
+            months_indonesian = [
+                "Januari", "Februari", "Maret", "April", "Mei", "Juni",
+                "Juli", "Agustus", "September", "Oktober", "November", "Desember"
+            ]
+            return date_obj.strftime(f"%d {months_indonesian[date_obj.month - 1]} %Y")
+        except ValueError:
+            return date_str
+
+    formatted_date = format_date_to_indonesian(invoice_data.date)
+    formatted_due_date = format_date_to_indonesian(invoice_data.due_date)
+
+    p.drawRightString(width - 50, info_y, formatted_date)
+    p.drawRightString(width - 50, info_y - 20, formatted_due_date)
     if invoice_data.po_number:
         p.drawRightString(width - 50, info_y - 40, invoice_data.po_number)
 
