@@ -109,7 +109,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <input type="number" placeholder="1" class="item-quantity input text-right" value="1">
             </td>
             <td class="p-2">
-                <input type="number" placeholder="0" class="item-rate input text-right" value="0">
+                <input type="number" placeholder="0" class="item-rate input text-right" value="">
             </td>
             <td class="p-2 text-right font-medium item-amount">
                 Rp0
