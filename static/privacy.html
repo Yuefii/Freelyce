@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="id" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Freelyce | Kebijakan Privasi</title>
+    <!-- favicon -->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="static/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="static/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="static/favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="static/favicon/site.webmanifest" />
+    <link rel="shortcut icon" href="static/favicon/favicon.ico" />
+    <!-- tailwindcss -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <!-- CSS -->
+    <link rel="stylesheet" href="static/css/style.css" />
+  </head>
+
+  <body class="bg-background">
+    <div class="grid-background"></div>
+    <div id="particle-container"></div>
+
+    <header
+      id="navbar"
+      class="sticky top-0 z-50 transition-all duration-300 bg-white"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+          <div class="flex-shrink-0 -ml-8 sm:ml-0">
+            <a
+              href="/"
+              class="text-2xl font-bold text-primary transition-opacity hover:opacity-80"
+            >
+              <img
+                src="static/img/logo-freelyce.png"
+                alt="Freelyce Logo"
+                class="w-32"
+              />
+            </a>
+          </div>
+          <div class="md:hidden">
+            <button
+              id="menu-button"
+              class="inline-flex items-center justify-center p-2 rounded-md text-foreground hover:text-primary hover:bg-secondary focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary"
+            >
+              <span class="sr-only">Buka menu utama</span>
+              <svg
+                id="menu-icon-open"
+                class="h-6 w-6"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              </svg>
+              <svg
+                id="menu-icon-close"
+                class="hidden h-6 w-6"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            </button>
+          </div>
+          <nav class="hidden md:flex space-x-8">
+            <a
+              href="/"
+              class="text-foreground hover:text-primary transition-colors duration-200"
+              >Beranda</a
+            >
+            <a
+              href="/history"
+              class="text-foreground hover:text-primary transition-colors duration-200"
+              >Riwayat</a
+            >
+            <a
+              href="/helper"
+              class="text-foreground hover:text-primary transition-colors duration-200"
+              >Bantuan</a
+            >
+            <a
+              href="/api-docs"
+              class="text-foreground hover:text-primary transition-colors duration-200"
+              >Dokumentasi API</a
+            >
+          </nav>
+        </div>
+      </div>
+      <div
+        id="mobile-menu"
+        class="md:hidden hidden fixed top-16 inset-x-0 bg-white shadow-md z-40"
+        style="backdrop-filter: blur(8px)"
+      >
+        <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+          <a
+            href="/"
+            class="text-foreground hover:text-primary hover:bg-secondary block px-3 py-2 rounded-md text-base font-medium"
+            >Beranda</a
+          >
+          <a
+            href="/history"
+            class="text-foreground hover:text-primary hover:bg-secondary block px-3 py-2 rounded-md text-base font-medium"
+            >Riwayat</a
+          >
+          <a
+            href="/helper"
+            class="text-foreground hover:text-primary hover:bg-secondary block px-3 py-2 rounded-md text-base font-medium"
+            >Bantuan</a
+          >
+          <a
+            href="/api-docs"
+            class="text-foreground hover:text-primary hover:bg-secondary block px-3 py-2 rounded-md text-base font-medium"
+            >Dokumentasi API</a
+          >
+        </div>
+      </div>
+    </header>
+
+    <main class="p-4 md:p-8">
+      <div class="max-w-4xl mx-auto card p-6 md:p-10">
+        <h1 class="text-3xl md:text-4xl font-bold tracking-tight mb-6">
+          Kebijakan Privasi
+        </h1>
+        <div class="prose lg:prose-xl max-w-none text-gray-700">
+          <p class="text-sm text-gray-500">
+            Terakhir diperbarui: 18 November 2025
+          </p>
+
+          <p>
+            Selamat datang di Freelyce. Kami menghargai privasi Anda dan
+            berkomitmen untuk melindunginya. Kebijakan Privasi ini menjelaskan
+            bagaimana kami menangani informasi Anda saat menggunakan layanan
+            kami.
+          </p>
+
+          <h2 class="mt-8">1. Tidak Ada Pengumpulan Data Pribadi</h2>
+          <p>
+            Freelyce dirancang dengan prinsip privasi sebagai prioritas utama.
+            <strong>Kami tidak memerlukan registrasi akun</strong> untuk
+            menggunakan layanan kami. Semua fitur inti, seperti pembuatan dan
+            pengunduhan invoice, dapat diakses secara anonim.
+          </p>
+
+          <h2 class="mt-8">2. Informasi yang Anda Masukkan</h2>
+          <p>
+            Saat Anda membuat invoice, Anda memasukkan data seperti nama,
+            alamat, detail item, dan informasi kontak. Informasi ini
+            <strong>hanya digunakan untuk tujuan berikut</strong>:
+          </p>
+          <ul class="list-disc pl-6 space-y-2">
+            <li>
+              <strong>Membuat Dokumen PDF</strong>: Data yang Anda berikan
+              diproses di server kami untuk menghasilkan file invoice dalam
+              format PDF.
+            </li>
+            <li>
+              <strong>Transmisi Sementara</strong>: Informasi tersebut
+              dikirimkan secara aman ke server kami untuk diproses dan segera
+              dihapus setelah file PDF dibuat dan dikirimkan kepada Anda.
+            </li>
+          </ul>
+          <p>
+            <strong
+              >Kami tidak menyimpan data invoice Anda di server kami.</strong
+            >
+            Setelah proses pembuatan PDF selesai, semua informasi yang terkait
+            dengan invoice tersebut akan dihapus secara permanen dari sistem
+            kami.
+          </p>
+
+          <h2 class="mt-8">3. Riwayat Invoice (Penyimpanan Lokal)</h2>
+          <p>
+            Freelyce menyediakan fitur "Riwayat" yang memungkinkan Anda melihat
+            invoice yang pernah dibuat sebelumnya. Fitur ini bekerja dengan
+            menyimpan data invoice
+            <strong>langsung di browser Anda (menggunakan Local Storage)</strong
+            >, bukan di server kami. Ini berarti:
+          </p>
+          <ul class="list-disc pl-6 space-y-2">
+            <li>
+              Hanya Anda yang dapat mengakses riwayat invoice Anda dari
+              perangkat dan browser yang sama.
+            </li>
+            <li>
+              Data riwayat tidak pernah dikirim atau disimpan di server
+              Freelyce.
+            </li>
+            <li>
+              Jika Anda membersihkan cache browser atau menggunakan perangkat
+              lain, riwayat tersebut tidak akan tersedia.
+            </li>
+          </ul>
+
+          <h2 class="mt-8">4. Logo Perusahaan</h2>
+          <p>
+            Jika Anda memilih untuk mengunggah logo, file gambar tersebut akan
+            diproses untuk disertakan dalam invoice PDF. Sama seperti data
+            lainnya, file logo
+            <strong>tidak disimpan di server kami</strong> dan akan dihapus
+            setelah proses pembuatan PDF selesai.
+          </p>
+
+          <h2 class="mt-8">5. Data Analitik Anonim</h2>
+          <p>
+            Kami mungkin mengumpulkan data penggunaan anonim (seperti jumlah
+            kunjungan atau fitur yang paling sering digunakan) untuk tujuan
+            meningkatkan kualitas layanan kami. Data ini bersifat agregat dan
+            tidak dapat dihubungkan dengan individu mana pun.
+          </p>
+
+          <h2 class="mt-8">6. Perubahan pada Kebijakan Ini</h2>
+          <p>
+            Kami dapat memperbarui Kebijakan Privasi ini dari waktu ke waktu.
+            Perubahan akan dipublikasikan di halaman ini, dan kami menyarankan
+            Anda untuk meninjaunya secara berkala.
+          </p>
+
+          <h2 class="mt-8">Hubungi Kami</h2>
+          <p>
+            Jika Anda memiliki pertanyaan lebih lanjut mengenai kebijakan
+            privasi kami, jangan ragu untuk menghubungi kami melalui email di
+            [alamat email kontak Anda].
+          </p>
+        </div>
+      </div>
+      <footer
+        class="bg-background border-t border-border text-secondary-foreground mt-20"
+      >
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div
+            class="flex flex-col items-center justify-center text-center space-y-6"
+          >
+            <nav class="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm">
+              <a
+                href="/"
+                class="text-foreground/80 hover:text-primary transition-colors"
+                >Beranda</a
+              >
+              <a
+                href="/history"
+                class="text-foreground/80 hover:text-primary transition-colors"
+                >Riwayat</a
+              >
+              <a
+                href="/helper"
+                class="text-foreground/80 hover:text-primary transition-colors"
+                >Bantuan</a
+              >
+              <a
+                href="/api-docs"
+                class="text-foreground/80 hover:text-primary transition-colors"
+                >Dokumentasi API</a
+              >
+              <a
+                href="/privacy"
+                class="text-primary font-semibold transition-colors duration-200"
+                >Privasi</a
+              >
+              <a
+                href="/terms"
+                class="text-foreground/80 hover:text-primary transition-colors"
+                >Ketentuan</a
+              >
+            </nav>
+            <p class="text-xs text-foreground/50 pt-4">
+              &copy; <span id="current-year"></span> Freelyce. All rights
+              reserved.
+            </p>
+          </div>
+        </div>
+      </footer>
+    </main>
+    <script src="static/js/main.js"></script>
+  </body>
+</html>
+

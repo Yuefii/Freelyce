@@ -34,6 +34,14 @@ async def get_history():
 async def get_api_docs():
     return FileResponse('static/api_docs.html', media_type='text/html')
 
+@app.get("/privacy")
+async def get_privacy():
+    return FileResponse('static/privacy.html', media_type='text/html')
+
+@app.get("/terms")
+async def get_terms():
+    return FileResponse('static/terms.html', media_type='text/html')
+
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
 if __name__ == "__main__":
