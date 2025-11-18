@@ -26,6 +26,10 @@ async def get_index():
 async def get_helper():
     return FileResponse('static/helper.html', media_type='text/html')
 
+@app.get("/history")
+async def get_history():
+    return FileResponse('static/history.html', media_type='text/html')
+
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
 if __name__ == "__main__":

@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="id" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Freelyce | Riwayat Invoice</title>
+    <!-- favicon -->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="static/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="static/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="static/favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="static/favicon/site.webmanifest" />
+    <link rel="shortcut icon" href="static/favicon/favicon.ico" />
+    <!-- tailwindcss -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <!-- CSS -->
+    <link rel="stylesheet" href="static/css/style.css" />
+  </head>
+
+  <body class="bg-background">
+    <div class="grid-background"></div>
+    <div id="particle-container"></div>
+
+    <header id="navbar" class="sticky top-0 z-50 transition-all duration-300">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+          <div class="flex-shrink-0">
+            <a
+              href="/"
+              class="text-2xl font-bold text-primary transition-opacity hover:opacity-80"
+            >
+              <img
+                src="static/img/logo-freelyce.png"
+                alt="Freelyce Logo"
+                class="w-32"
+              />
+            </a>
+          </div>
+          <div class="md:hidden">
+            <button
+              id="menu-button"
+              class="inline-flex items-center justify-center p-2 rounded-md text-foreground hover:text-primary hover:bg-secondary focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary"
+            >
+              <span class="sr-only">Buka menu utama</span>
+              <svg
+                id="menu-icon-open"
+                class="h-6 w-6"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              </svg>
+              <svg
+                id="menu-icon-close"
+                class="hidden h-6 w-6"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            </button>
+          </div>
+          <nav class="hidden md:flex space-x-8">
+            <a
+              href="/"
+              class="text-foreground hover:text-primary transition-colors duration-200"
+              >Beranda</a
+            >
+            <a
+              href="/history"
+              class="text-primary font-semibold transition-colors duration-200"
+              >Riwayat</a
+            >
+            <a
+              href="/helper"
+              class="text-foreground hover:text-primary transition-colors duration-200"
+              >Bantuan</a
+            >
+          </nav>
+        </div>
+      </div>
+      <div
+        id="mobile-menu"
+        class="md:hidden hidden fixed top-16 inset-x-0 bg-background/80 shadow-md z-40"
+        style="backdrop-filter: blur(8px)"
+      >
+        <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+          <a
+            href="/"
+            class="text-foreground hover:text-primary hover:bg-secondary block px-3 py-2 rounded-md text-base font-medium"
+            >Beranda</a
+          >
+          <a
+            href="/history"
+            class="text-foreground hover:text-primary hover:bg-secondary block px-3 py-2 rounded-md text-base font-medium"
+            >Riwayat</a
+          >
+          <a
+            href="/helper"
+            class="text-foreground hover:text-primary hover:bg-secondary block px-3 py-2 rounded-md text-base font-medium"
+            >Bantuan</a
+          >
+        </div>
+      </div>
+    </header>
+
+    <main class="p-4 md:p-8">
+      <section
+        class="text-center py-16 md:py-24 fade-in animated-hero-background"
+      >
+        <div class="max-w-3xl mx-auto relative z-10">
+          <h1
+            class="text-4xl md:text-6xl font-extrabold tracking-tighter mb-4"
+            style="color: var(--primary)"
+          >
+            Riwayat Invoice
+          </h1>
+          <p
+            class="text-lg md:text-xl text-foreground/80 mb-8 max-w-2xl mx-auto"
+          >
+            Cari dan lihat invoice yang pernah Anda buat sebelumnya.
+          </p>
+        </div>
+      </section>
+
+      <div
+        class="max-w-5xl mx-auto card p-6 md:p-10 fade-in"
+        style="animation-delay: 200ms"
+      >
+        <div class="mb-6">
+          <label for="search-invoice" class="sr-only">Cari Invoice</label>
+          <input
+            type="text"
+            id="search-invoice"
+            class="input"
+            placeholder="Cari berdasarkan nomor invoice..."
+          />
+        </div>
+        <div
+          id="history-results"
+          class="grid grid-cols-1 md:grid-cols-2 gap-6"
+        ></div>
+      </div>
+    </main>
+
+    <footer class="text-center mt-12">
+      <p class="text-sm text-gray-500">
+        Dibuat dengan Freelyce Invoice Generator
+      </p>
+    </footer>
+
+    <script src="static/js/history.js"></script>
+    <script src="static/js/main.js"></script>
+  </body>
+</html>

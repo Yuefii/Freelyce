@@ -271,6 +271,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     a.click();
                     window.URL.revokeObjectURL(url);
                     a.remove();
+                    saveInvoiceToDB(invoiceData); // Save to IndexedDB for history
                 } else {
                     const error = await response.text();
                     alert('Gagal membuat invoice: ' + error);
@@ -290,3 +291,73 @@ document.addEventListener('DOMContentLoaded', function() {
         calculateTotals();
     }
 });
+
+function saveInvoiceToDB(invoiceData) {
+    const dbName = "invoiceDB";
+    const storeName = "invoices";
+
+    const request = indexedDB.open(dbName, 1);
+
+    request.onerror = (event) => {
+        console.error("Database error: " + event.target.errorCode);
+    };
+
+    request.onupgradeneeded = (event) => {
+        const db = event.target.result;
+        if (!db.objectStoreNames.contains(storeName)) {
+            db.createObjectStore(storeName, { keyPath: "invoiceCode" });
+        }
+    };
+
+    request.onsuccess = (event) => {
+        const db = event.target.result;
+        const transaction = db.transaction([storeName], "readwrite");
+        const objectStore = transaction.objectStore(storeName);
+
+        const total = calculateTotalFromData(invoiceData);
+
+        const itemsWithTotal = invoiceData.items.map(item => ({
+            ...item,
+            total: item.quantity * item.rate
+        }));
+
+        const dataToStore = {
+            invoiceCode: invoiceData.invoice_number,
+            date: invoiceData.date,
+            dueDate: invoiceData.due_date,
+            from: invoiceData.from_address,
+            to: invoiceData.bill_to_address,
+            items: itemsWithTotal,
+            total: `Rp${total.toLocaleString('id-ID')}`,
+            logo: invoiceData.logo // Save the logo
+        };
+
+        const addRequest = objectStore.add(dataToStore);
+
+        addRequest.onsuccess = () => {
+            console.log("Invoice saved to IndexedDB");
+        };
+
+        addRequest.onerror = (event) => {
+            console.error("Error saving invoice to IndexedDB: " + event.target.errorCode);
+        };
+    };
+}
+
+function calculateTotalFromData(data) {
+    const subtotal = data.items.reduce((acc, item) => acc + (item.quantity * item.rate), 0);
+    
+    let discountAmount = 0;
+    if (data.discount_type === 'percentage') {
+        discountAmount = (subtotal * data.discount) / 100;
+    } else {
+        discountAmount = data.discount;
+    }
+
+    const discountedSubtotal = subtotal - discountAmount;
+    const taxAmount = discountedSubtotal * (data.tax_rate / 100);
+    const total = discountedSubtotal + taxAmount;
+
+    return total;
+}
+
