@@ -35,6 +35,11 @@
     />
     <!-- CSS -->
     <link rel="stylesheet" href="static/css/style.css" />
+    <!-- Prism.js CSS for Syntax Highlighting -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css"
+    />
     <style>
       .doc-section h2 {
         font-size: 1.5rem;
@@ -48,14 +53,6 @@
         font-weight: 600;
         margin-top: 1.5rem;
         margin-bottom: 0.5rem;
-      }
-      .doc-code {
-        background-color: #2d2d2d;
-        color: #f1f1f1;
-        padding: 1rem;
-        border-radius: var(--radius);
-        font-family: "Courier New", Courier, monospace;
-        white-space: pre-wrap;
       }
     </style>
   </head>
@@ -197,14 +194,6 @@
         class="max-w-5xl mx-auto card p-6 md:p-10 fade-in doc-section"
         style="animation-delay: 200ms"
       >
-        <section class="mb-12">
-          <h2>Base URL API</h2>
-          <p class="mb-4">
-            Semua endpoint API di bawah ini menggunakan base URL berikut:
-          </p>
-          <pre class="doc-code"><code>https://freelyce.vercel.app</code></pre>
-        </section>
-
         <section id="get-next-invoice-number" class="mb-12">
           <h2>GET /next-invoice-number</h2>
           <p class="mb-4">
@@ -222,9 +211,7 @@
 
           <h3>Endpoint</h3>
           <div class="relative">
-            <pre
-              class="doc-code"
-            ><code>https://freelyce.vercel.app/next-invoice-number</code></pre>
+            <pre><code class="language-http">https://freelyce.vercel.app/next-invoice-number</code></pre>
             <button
               class="copy-btn absolute top-2 right-2 p-2 bg-gray-700 hover:bg-gray-600 rounded-md text-gray-300"
             >
@@ -251,9 +238,7 @@
           <h3>Success Response (200 OK)</h3>
           <p>Mengembalikan objek JSON dengan nomor invoice berikutnya.</p>
           <div class="relative">
-            <pre class="doc-code"><code>{
-    "invoice_number": "INV-2025-0001"
-}</code></pre>
+            <pre><code class="language-json">{"invoice_number": "INV-2025-0001"}</code></pre>
             <button
               class="copy-btn absolute top-2 right-2 p-2 bg-gray-700 hover:bg-gray-600 rounded-md text-gray-300"
             >
@@ -285,16 +270,16 @@
           <h3>Method</h3>
           <p>
             <span
-              class="font-semibold bg-blue-100 text-blue-800 px-2 py-1 rounded-md"
+              class="font-semibold bg-yellow-100 text-yellow-800 px-2 py-1 rounded-md"
               >POST</span
             >
           </p>
 
           <h3>Endpoint</h3>
+
           <div class="relative">
-            <pre
-              class="doc-code"
-            ><code>https://freelyce.vercel.app/invoice</code></pre>
+            <pre><code class="language-http">https://freelyce.vercel.app/invoice</code></pre>
+
             <button
               class="copy-btn absolute top-2 right-2 p-2 bg-gray-700 hover:bg-gray-600 rounded-md text-gray-300"
             >
@@ -507,15 +492,15 @@
 
           <p>Berikut adalah contoh lengkap dari body request:</p>
           <div class="relative">
-            <pre class="doc-code"><code>{
+            <pre><code class="language-json">{
     "invoice_number": "INV-2025-0001",
-    "from_address": "PT. Contoh Jaya\nJl. Merdeka No. 10\nJakarta, Indonesia",
-    "bill_to_address": "Bapak Budi\nJl. Sudirman No. 5\nSurabaya, Indonesia",
+    "from_address": "Freelyce\nJl. Merdeka No. 10\nJakarta, Indonesia",
+    "bill_to_address": "Bapak John\nJl. Sudirman No. 5\nSurabaya, Indonesia",
     "date": "2025-11-18",
     "due_date": "2025-12-18",
     "po_number": "PO-12345",
-    "discount": 50000.0,
-    "discount_type": "fixed",
+    "discount": 5,
+    "discount_type": "percentage",
     "items": [
         {
             "description": "Jasa Desain Logo",
@@ -528,9 +513,9 @@
             "rate": 150000.0
         }
     ],
-    "notes": "Pembayaran diharapkan dalam 30 hari.",
-    "tax_rate": 10.0,
-    "logo": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg=="
+    "notes": "Tolong lakukan pembayaran sebelum tanggal jatuh tempo. Terimakasih telah menggunakan jasa kami.",
+    "tax_rate": 0,
+    "logo": "https://freelyce.vercel.app/static/img/logo-white-background.png"
 }</code></pre>
             <button
               class="copy-btn absolute top-2 right-2 p-2 bg-gray-700 hover:bg-gray-600 rounded-md text-gray-300"
@@ -573,5 +558,8 @@
     </footer>
 
     <script src="static/js/main.js"></script>
+    <!-- Prism.js JS for Syntax Highlighting -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-json.min.js"></script>
   </body>
 </html>
