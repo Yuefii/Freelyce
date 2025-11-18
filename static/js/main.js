@@ -271,7 +271,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     a.click();
                     window.URL.revokeObjectURL(url);
                     a.remove();
-                    saveInvoiceToDB(invoiceData); // Save to IndexedDB for history
+                    saveInvoiceToDB(invoiceData);
                 } else {
                     const error = await response.text();
                     alert('Gagal membuat invoice: ' + error);
@@ -329,7 +329,7 @@ function saveInvoiceToDB(invoiceData) {
             to: invoiceData.bill_to_address,
             items: itemsWithTotal,
             total: `Rp${total.toLocaleString('id-ID')}`,
-            logo: invoiceData.logo // Save the logo
+            logo: invoiceData.logo
         };
 
         const addRequest = objectStore.add(dataToStore);
@@ -360,4 +360,26 @@ function calculateTotalFromData(data) {
 
     return total;
 }
+
+document.querySelectorAll('.copy-btn').forEach(button => {
+    button.addEventListener('click', () => {
+        const pre = button.previousElementSibling;
+        const code = pre.querySelector('code');
+        const textToCopy = code.innerText;
+
+        navigator.clipboard.writeText(textToCopy).then(() => {
+            const originalIcon = button.innerHTML;
+            button.innerHTML = `
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+            `;
+            setTimeout(() => {
+                button.innerHTML = originalIcon;
+            }, 2000);
+        }).catch(err => {
+            console.error('Failed to copy text: ', err);
+        });
+    });
+});
 
