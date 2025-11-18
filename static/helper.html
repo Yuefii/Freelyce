@@ -41,7 +41,10 @@
     <div class="grid-background"></div>
     <div id="particle-container"></div>
 
-    <header id="navbar" class="sticky top-0 z-50 transition-all duration-300 bg-white">
+    <header
+      id="navbar"
+      class="sticky top-0 z-50 transition-all duration-300 bg-white"
+    >
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between items-center h-16">
           <div class="flex-shrink-0 -ml-8 md:ml-0">
@@ -249,13 +252,69 @@
           </li>
         </ol>
       </div>
-
-      <footer class="text-center mt-12">
-        <p class="text-sm text-gray-500">
-          Dibuat dengan Freelyce Invoice Generator
-        </p>
+      <footer
+        class="bg-background border-t border-border text-secondary-foreground mt-20"
+      >
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div
+            class="flex flex-col items-center justify-center text-center space-y-6"
+          >
+            <nav class="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm">
+              <a
+                href="/"
+                class="text-foreground/80 hover:text-primary transition-colors"
+                >Beranda</a
+              >
+              <a
+                href="/history"
+                class="text-foreground/80 hover:text-primary transition-colors"
+                >Riwayat</a
+              >
+              <a
+                href="/helper"
+                class="text-foreground/80 hover:text-primary transition-colors"
+                >Bantuan</a
+              >
+              <a
+                href="/api-docs"
+                class="text-foreground/80 hover:text-primary transition-colors"
+                >Dokumentasi API</a
+              >
+              <a
+                href="/privacy"
+                class="text-foreground/80 hover:text-primary transition-colors"
+                >Privasi</a
+              >
+              <a
+                href="/terms"
+                class="text-foreground/80 hover:text-primary transition-colors"
+                >Ketentuan</a
+              >
+            </nav>
+            <p class="text-xs text-foreground/50 pt-4">
+              &copy; <span id="current-year"></span> Freelyce. All rights
+              reserved.
+            </p>
+          </div>
+        </div>
       </footer>
     </main>
+    <button id="back-to-top" class="fixed bottom-8 right-8 z-50 hidden">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-6 w-6"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M5 15l7-7 7 7"
+        />
+      </svg>
+    </button>
     <script src="static/js/main.js"></script>
   </body>
 </html>

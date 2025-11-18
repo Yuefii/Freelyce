@@ -52,7 +52,10 @@
     <div class="grid-background"></div>
     <div id="particle-container"></div>
 
-    <header id="navbar" class="sticky top-0 z-50 transition-all duration-300 bg-white">
+    <header
+      id="navbar"
+      class="sticky top-0 z-50 transition-all duration-300 bg-white"
+    >
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between items-center h-16">
           <div class="flex-shrink-0 -ml-8 sm:ml-0">
@@ -131,7 +134,11 @@
           </nav>
         </div>
       </div>
-      <div id="mobile-menu" class="md:hidden hidden fixed top-16 inset-x-0 bg-white shadow-md z-40" style="backdrop-filter: blur(8px);">
+      <div
+        id="mobile-menu"
+        class="md:hidden hidden fixed top-16 inset-x-0 bg-white shadow-md z-40"
+        style="backdrop-filter: blur(8px)"
+      >
         <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
           <a
             href="/"
@@ -308,9 +315,20 @@
 
                   <td class="p-2 text-right font-medium item-amount">Rp0</td>
                   <td class="p-2 text-center">
-                    <button class="text-red-500 hover:text-red-700 transition-colors remove-item-btn">
-                      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                        <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm4 0a1 1 0 012 0v6a1 1 0 11-2 0V8z" clip-rule="evenodd" />
+                    <button
+                      class="text-red-500 hover:text-red-700 transition-colors remove-item-btn"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="h-5 w-5"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm4 0a1 1 0 012 0v6a1 1 0 11-2 0V8z"
+                          clip-rule="evenodd"
+                        />
                       </svg>
                     </button>
                   </td>
@@ -325,9 +343,20 @@
             >
               <div class="flex justify-between items-center mb-2">
                 <label class="text-xs font-medium text-muted">Item</label>
-                <button class="text-red-500 hover:text-red-700 transition-colors remove-item-btn">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                    <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm4 0a1 1 0 012 0v6a1 1 0 11-2 0V8z" clip-rule="evenodd" />
+                <button
+                  class="text-red-500 hover:text-red-700 transition-colors remove-item-btn"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm4 0a1 1 0 012 0v6a1 1 0 11-2 0V8z"
+                      clip-rule="evenodd"
+                    />
                   </svg>
                 </button>
               </div>
@@ -435,13 +464,69 @@
           </button>
         </div>
       </div>
-
-      <footer class="text-center mt-12">
-        <p class="text-sm text-gray-500">
-          Dibuat dengan Freelyce Invoice Generator
-        </p>
+      <footer
+        class="bg-background border-t border-border text-secondary-foreground mt-20"
+      >
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div
+            class="flex flex-col items-center justify-center text-center space-y-6"
+          >
+            <nav class="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm">
+              <a
+                href="/"
+                class="text-foreground/80 hover:text-primary transition-colors"
+                >Beranda</a
+              >
+              <a
+                href="/history"
+                class="text-foreground/80 hover:text-primary transition-colors"
+                >Riwayat</a
+              >
+              <a
+                href="/helper"
+                class="text-foreground/80 hover:text-primary transition-colors"
+                >Bantuan</a
+              >
+              <a
+                href="/api-docs"
+                class="text-foreground/80 hover:text-primary transition-colors"
+                >Dokumentasi API</a
+              >
+              <a
+                href="/privacy"
+                class="text-foreground/80 hover:text-primary transition-colors"
+                >Privasi</a
+              >
+              <a
+                href="/terms"
+                class="text-foreground/80 hover:text-primary transition-colors"
+                >Ketentuan</a
+              >
+            </nav>
+            <p class="text-xs text-foreground/50 pt-4">
+              &copy; <span id="current-year"></span> Freelyce. All rights
+              reserved.
+            </p>
+          </div>
+        </div>
       </footer>
     </main>
+    <button id="back-to-top" class="fixed bottom-8 right-8 z-50 hidden">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-6 w-6"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M5 15l7-7 7 7"
+        />
+      </svg>
+    </button>
     <script src="static/js/main.js"></script>
   </body>
 </html>
