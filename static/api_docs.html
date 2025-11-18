@@ -1,0 +1,497 @@
+<!doctype html>
+<html lang="id" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dokumentasi API - Freelyce</title>
+    <!-- favicon -->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="static/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="static/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="static/favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="static/favicon/site.webmanifest" />
+    <link rel="shortcut icon" href="static/favicon/favicon.ico" />
+    <!-- tailwindcss -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <!-- CSS -->
+    <link rel="stylesheet" href="static/css/style.css" />
+    <style>
+      .doc-section h2 {
+        font-size: 1.5rem;
+        font-weight: 600;
+        border-bottom: 1px solid var(--border);
+        padding-bottom: 0.5rem;
+        margin-bottom: 1rem;
+      }
+      .doc-section h3 {
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin-top: 1.5rem;
+        margin-bottom: 0.5rem;
+      }
+      .doc-code {
+        background-color: #2d2d2d;
+        color: #f1f1f1;
+        padding: 1rem;
+        border-radius: var(--radius);
+        font-family: "Courier New", Courier, monospace;
+        white-space: pre-wrap;
+      }
+    </style>
+  </head>
+
+  <body class="bg-background">
+    <div class="grid-background"></div>
+    <div id="particle-container"></div>
+
+    <header id="navbar" class="sticky top-0 z-50 transition-all duration-300">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+          <div class="flex-shrink-0">
+            <a
+              href="/"
+              class="text-2xl font-bold text-primary transition-opacity hover:opacity-80"
+            >
+              <img
+                src="static/img/logo-freelyce.png"
+                alt="Freelyce Logo"
+                class="w-32"
+              />
+            </a>
+          </div>
+          <div class="md:hidden">
+            <button
+              id="menu-button"
+              class="inline-flex items-center justify-center p-2 rounded-md text-foreground hover:text-primary hover:bg-secondary focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary"
+            >
+              <span class="sr-only">Buka menu utama</span>
+              <svg
+                id="menu-icon-open"
+                class="h-6 w-6"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              </svg>
+              <svg
+                id="menu-icon-close"
+                class="hidden h-6 w-6"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            </button>
+          </div>
+          <nav class="hidden md:flex space-x-8">
+            <a
+              href="/"
+              class="text-foreground hover:text-primary transition-colors duration-200"
+              >Beranda</a
+            >
+            <a
+              href="/history"
+              class="text-foreground hover:text-primary transition-colors duration-200"
+              >Riwayat</a
+            >
+            <a
+              href="/helper"
+              class="text-foreground hover:text-primary transition-colors duration-200"
+              >Bantuan</a
+            >
+            <a
+              href="/api-docs"
+              class="text-primary font-semibold transition-colors duration-200"
+              >Dokumentasi API</a
+            >
+          </nav>
+        </div>
+      </div>
+      <div
+        id="mobile-menu"
+        class="md:hidden hidden fixed top-16 inset-x-0 bg-background/80 shadow-md z-40"
+        style="backdrop-filter: blur(8px)"
+      >
+        <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+          <a
+            href="/"
+            class="text-foreground hover:text-primary hover:bg-secondary block px-3 py-2 rounded-md text-base font-medium"
+            >Beranda</a
+          >
+          <a
+            href="/history"
+            class="text-foreground hover:text-primary hover:bg-secondary block px-3 py-2 rounded-md text-base font-medium"
+            >Riwayat</a
+          >
+          <a
+            href="/helper"
+            class="text-foreground hover:text-primary hover:bg-secondary block px-3 py-2 rounded-md text-base font-medium"
+            >Bantuan</a
+          >
+          <a
+            href="/api-docs"
+            class="text-foreground hover:text-primary hover:bg-secondary block px-3 py-2 rounded-md text-base font-medium"
+            >Dokumentasi API</a
+          >
+        </div>
+      </div>
+    </header>
+
+    <main class="p-4 md:p-8">
+      <section
+        class="text-center py-16 md:py-24 fade-in animated-hero-background"
+      >
+        <div class="max-w-3xl mx-auto relative z-10">
+          <h1
+            class="text-4xl md:text-6xl font-extrabold tracking-tighter mb-4"
+            style="color: var(--primary)"
+          >
+            Dokumentasi API
+          </h1>
+          <p
+            class="text-lg md:text-xl text-foreground/80 mb-8 max-w-2xl mx-auto"
+          >
+            Kami juga menyediakan API untuk para pengembang. Berikut adalah
+            panduan untuk menggunakan API untuk membuat invoice.
+          </p>
+        </div>
+      </section>
+
+      <div
+        class="max-w-5xl mx-auto card p-6 md:p-10 fade-in doc-section"
+        style="animation-delay: 200ms"
+      >
+        <section class="mb-12">
+          <h2>Base URL API</h2>
+          <p class="mb-4">
+            Semua endpoint API di bawah ini menggunakan base URL berikut:
+          </p>
+          <pre class="doc-code"><code>https://freelyce.vercel.app</code></pre>
+        </section>
+
+        <section id="get-next-invoice-number" class="mb-12">
+          <h2>GET /next-invoice-number</h2>
+          <p class="mb-4">
+            Mendapatkan nomor invoice berikutnya yang tersedia dalam format
+            sekuensial.
+          </p>
+
+          <h3>Method</h3>
+          <p>
+            <span
+              class="font-semibold bg-green-100 text-green-800 px-2 py-1 rounded-md"
+              >GET</span
+            >
+          </p>
+
+          <h3>Endpoint</h3>
+          <pre
+            class="doc-code"
+          ><code>https://freelyce.vercel.app/next-invoice-number</code></pre>
+
+          <h3>Parameters</h3>
+          <p>Tidak ada.</p>
+
+          <h3>Success Response (200 OK)</h3>
+          <p>Mengembalikan objek JSON dengan nomor invoice berikutnya.</p>
+          <pre class="mt-2 doc-code"><code>{
+    "invoice_number": "INV-2025-0001"
+}</code></pre>
+        </section>
+
+        <section id="post-invoice">
+          <h2>POST /invoice</h2>
+          <p class="mb-4">
+            Membuat file invoice dalam format PDF berdasarkan data JSON yang
+            dikirim.
+          </p>
+
+          <h3>Method</h3>
+          <p>
+            <span
+              class="font-semibold bg-blue-100 text-blue-800 px-2 py-1 rounded-md"
+              >POST</span
+            >
+          </p>
+
+          <h3>Endpoint</h3>
+          <pre
+            class="doc-code"
+          ><code>https://freelyce.vercel.app/invoice</code></pre>
+
+          <h3>Request Body</h3>
+          <p>
+            Anda harus mengirimkan objek JSON dengan struktur berikut di dalam
+            body request:
+          </p>
+
+          <h4 class="font-semibold mt-4 mb-2">Invoice Object Fields:</h4>
+          <div class="overflow-x-auto mb-6">
+            <table
+              class="min-w-full bg-white border border-gray-200 rounded-lg"
+            >
+              <thead>
+                <tr class="bg-gray-100 border-b">
+                  <th
+                    class="px-4 py-2 text-left text-sm font-medium text-gray-600"
+                  >
+                    Field
+                  </th>
+                  <th
+                    class="px-4 py-2 text-left text-sm font-medium text-gray-600"
+                  >
+                    Type
+                  </th>
+                  <th
+                    class="px-4 py-2 text-left text-sm font-medium text-gray-600"
+                  >
+                    Required
+                  </th>
+                  <th
+                    class="px-4 py-2 text-left text-sm font-medium text-gray-600"
+                  >
+                    Description
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="border-b">
+                  <td class="px-4 py-2 text-sm">invoice_number</td>
+                  <td class="px-4 py-2 text-sm">string</td>
+                  <td class="px-4 py-2 text-sm text-green-600">Ya</td>
+                  <td class="px-4 py-2 text-sm">Nomor unik untuk invoice.</td>
+                </tr>
+                <tr class="border-b">
+                  <td class="px-4 py-2 text-sm">from_address</td>
+                  <td class="px-4 py-2 text-sm">string</td>
+                  <td class="px-4 py-2 text-sm text-green-600">Ya</td>
+                  <td class="px-4 py-2 text-sm">Alamat pengirim invoice.</td>
+                </tr>
+                <tr class="border-b">
+                  <td class="px-4 py-2 text-sm">bill_to_address</td>
+                  <td class="px-4 py-2 text-sm">string</td>
+                  <td class="px-4 py-2 text-sm text-green-600">Ya</td>
+                  <td class="px-4 py-2 text-sm">Alamat penerima invoice.</td>
+                </tr>
+                <tr class="border-b">
+                  <td class="px-4 py-2 text-sm">date</td>
+                  <td class="px-4 py-2 text-sm">string (DD-MM-YYYY)</td>
+                  <td class="px-4 py-2 text-sm text-green-600">Ya</td>
+                  <td class="px-4 py-2 text-sm">Tanggal pembuatan invoice.</td>
+                </tr>
+                <tr class="border-b">
+                  <td class="px-4 py-2 text-sm">due_date</td>
+                  <td class="px-4 py-2 text-sm">string (DD-MM-YYYY)</td>
+                  <td class="px-4 py-2 text-sm text-green-600">Ya</td>
+                  <td class="px-4 py-2 text-sm">
+                    Tanggal jatuh tempo pembayaran.
+                  </td>
+                </tr>
+                <tr class="border-b">
+                  <td class="px-4 py-2 text-sm">po_number</td>
+                  <td class="px-4 py-2 text-sm">string</td>
+                  <td class="px-4 py-2 text-sm text-red-600">Tidak</td>
+                  <td class="px-4 py-2 text-sm">
+                    Nomor Purchase Order (opsional).
+                  </td>
+                </tr>
+                <tr class="border-b">
+                  <td class="px-4 py-2 text-sm">discount</td>
+                  <td class="px-4 py-2 text-sm">float</td>
+                  <td class="px-4 py-2 text-sm text-red-600">
+                    Tidak (default: 0.0)
+                  </td>
+                  <td class="px-4 py-2 text-sm">
+                    Jumlah diskon yang diterapkan.
+                  </td>
+                </tr>
+                <tr class="border-b">
+                  <td class="px-4 py-2 text-sm">discount_type</td>
+                  <td class="px-4 py-2 text-sm">string</td>
+                  <td class="px-4 py-2 text-sm text-red-600">
+                    Tidak (default: "fixed")
+                  </td>
+                  <td class="px-4 py-2 text-sm">
+                    Tipe diskon ("fixed" atau "percentage").
+                  </td>
+                </tr>
+                <tr class="border-b">
+                  <td class="px-4 py-2 text-sm">items</td>
+                  <td class="px-4 py-2 text-sm">array of Item objects</td>
+                  <td class="px-4 py-2 text-sm text-green-600">Ya</td>
+                  <td class="px-4 py-2 text-sm">
+                    Daftar item atau layanan dalam invoice.
+                  </td>
+                </tr>
+                <tr class="border-b">
+                  <td class="px-4 py-2 text-sm">notes</td>
+                  <td class="px-4 py-2 text-sm">string</td>
+                  <td class="px-4 py-2 text-sm text-red-600">Tidak</td>
+                  <td class="px-4 py-2 text-sm">
+                    Catatan tambahan untuk invoice.
+                  </td>
+                </tr>
+                <tr class="border-b">
+                  <td class="px-4 py-2 text-sm">tax_rate</td>
+                  <td class="px-4 py-2 text-sm">float</td>
+                  <td class="px-4 py-2 text-sm text-red-600">
+                    Tidak (default: 0.0)
+                  </td>
+                  <td class="px-4 py-2 text-sm">
+                    Tingkat pajak dalam persentase.
+                  </td>
+                </tr>
+                <tr>
+                  <td class="px-4 py-2 text-sm">logo</td>
+                  <td class="px-4 py-2 text-sm">string</td>
+                  <td class="px-4 py-2 text-sm text-red-600">Tidak</td>
+                  <td class="px-4 py-2 text-sm">
+                    Gambar logo dalam format base64 / url logo (opsional).
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h4 class="font-semibold mt-4 mb-2">
+            Item Object Fields (nested in 'items' array):
+          </h4>
+          <div class="overflow-x-auto mb-6">
+            <table
+              class="min-w-full bg-white border border-gray-200 rounded-lg"
+            >
+              <thead>
+                <tr class="bg-gray-100 border-b">
+                  <th
+                    class="px-4 py-2 text-left text-sm font-medium text-gray-600"
+                  >
+                    Field
+                  </th>
+                  <th
+                    class="px-4 py-2 text-left text-sm font-medium text-gray-600"
+                  >
+                    Type
+                  </th>
+                  <th
+                    class="px-4 py-2 text-left text-sm font-medium text-gray-600"
+                  >
+                    Required
+                  </th>
+                  <th
+                    class="px-4 py-2 text-left text-sm font-medium text-gray-600"
+                  >
+                    Description
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="border-b">
+                  <td class="px-4 py-2 text-sm">description</td>
+                  <td class="px-4 py-2 text-sm">string</td>
+                  <td class="px-4 py-2 text-sm text-green-600">Ya</td>
+                  <td class="px-4 py-2 text-sm">
+                    Deskripsi item atau layanan.
+                  </td>
+                </tr>
+                <tr class="border-b">
+                  <td class="px-4 py-2 text-sm">quantity</td>
+                  <td class="px-4 py-2 text-sm">integer</td>
+                  <td class="px-4 py-2 text-sm text-green-600">Ya</td>
+                  <td class="px-4 py-2 text-sm">Jumlah item.</td>
+                </tr>
+                <tr>
+                  <td class="px-4 py-2 text-sm">rate</td>
+                  <td class="px-4 py-2 text-sm">float</td>
+                  <td class="px-4 py-2 text-sm text-green-600">Ya</td>
+                  <td class="px-4 py-2 text-sm">Harga per unit item.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p>Berikut adalah contoh lengkap dari body request:</p>
+          <pre class="mt-2 doc-code"><code>{
+    "invoice_number": "INV-2025-0001",
+    "from_address": "PT. Contoh\nJl. Merdeka No. 10\nJakarta, Indonesia",
+    "bill_to_address": "Bapak John\nJl. Sudirman No. 5\nSurabaya, Indonesia",
+    "date": "2025-11-18",
+    "due_date": "2025-12-18",
+    "po_number": "PO-12345",
+    "discount": 5,
+    "discount_type": "percentage",
+    "items": [
+        {
+            "description": "Jasa Desain Logo",
+            "quantity": 1,
+            "rate": 500000.0
+        },
+        {
+            "description": "Lisensi Software",
+            "quantity": 2,
+            "rate": 150000.0
+        }
+    ],
+    "notes": "Tolong lakukan pembayaran sebelum tanggal jatuh tempo. Terimakasih telah menggunakan jasa kami.",
+    "tax_rate": 0,
+    "logo": "https://freelyce.vercel.app/static/img/logo-white-background.png"
+}</code></pre>
+
+          <h3>Success Response (200 OK)</h3>
+          <p>
+            Mengembalikan file biner dengan `Content-Type: application/pdf`.
+          </p>
+
+          <h3>Error Response (422 Unprocessable Entity)</h3>
+          <p>
+            Terjadi jika body request tidak sesuai dengan skema yang dibutuhkan.
+            Respon akan berisi detail error validasi.
+          </p>
+        </section>
+      </div>
+    </main>
+
+    <footer class="text-center mt-12">
+      <p class="text-sm text-gray-500">
+        Dibuat dengan Freelyce Invoice Generator
+      </p>
+    </footer>
+
+    <script src="static/js/main.js"></script>
+  </body>
+</html>

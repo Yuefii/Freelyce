@@ -30,6 +30,10 @@ async def get_helper():
 async def get_history():
     return FileResponse('static/history.html', media_type='text/html')
 
+@app.get("/api-docs")
+async def get_api_docs():
+    return FileResponse('static/api_docs.html', media_type='text/html')
+
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
 if __name__ == "__main__":
