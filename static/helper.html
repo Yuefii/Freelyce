@@ -1,100 +1,241 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id" class="scroll-smooth">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Freelyce | Bantuan & FAQ</title>
     <!-- favicon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="static/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="static/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="static/favicon/favicon-16x16.png">
-    <link rel="manifest" href="static/favicon/site.webmanifest">
-    <link rel="shortcut icon" href="static/favicon/favicon.ico">
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="static/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="static/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="static/favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="static/favicon/site.webmanifest" />
+    <link rel="shortcut icon" href="static/favicon/favicon.ico" />
     <!-- tailwindcss -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
     <!-- CSS -->
-    <link rel="stylesheet" href="static/css/style.css">
-</head>
+    <link rel="stylesheet" href="static/css/style.css" />
+  </head>
 
-<body class="bg-background">
+  <body class="bg-background">
     <div class="grid-background"></div>
     <div id="particle-container"></div>
 
     <header id="navbar" class="sticky top-0 z-50 transition-all duration-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
-                <div class="flex-shrink-0">
-                    <a href="/" class="text-2xl font-bold text-primary transition-opacity hover:opacity-80">
-                        <img src="static/img/logo-freelyce.png" alt="Freelyce Logo" class="w-32">
-                    </a>
-                </div>
-                <nav class="hidden md:flex space-x-8">
-                    <a href="/" class="text-foreground hover:text-primary transition-colors duration-200">Beranda</a>
-                    <a href="/helper" class="text-primary font-semibold transition-colors duration-200">Bantuan</a>
-                </nav>
-            </div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+          <div class="flex-shrink-0">
+            <a
+              href="/"
+              class="text-2xl font-bold text-primary transition-opacity hover:opacity-80"
+            >
+              <img
+                src="static/img/logo-freelyce.png"
+                alt="Freelyce Logo"
+                class="w-32"
+              />
+            </a>
+          </div>
+          <div class="md:hidden">
+            <button
+              id="menu-button"
+              class="inline-flex items-center justify-center p-2 rounded-md text-foreground hover:text-primary hover:bg-secondary focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary"
+            >
+              <span class="sr-only">Buka menu utama</span>
+              <svg
+                id="menu-icon-open"
+                class="h-6 w-6"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              </svg>
+              <svg
+                id="menu-icon-close"
+                class="hidden h-6 w-6"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            </button>
+          </div>
+          <nav class="hidden md:flex space-x-8">
+            <a
+              href="/"
+              class="text-foreground hover:text-primary transition-colors duration-200"
+              >Beranda</a
+            >
+            <a
+              href="/helper"
+              class="text-primary font-semibold transition-colors duration-200"
+              >Bantuan</a
+            >
+          </nav>
         </div>
+      </div>
     </header>
+    <div
+      id="mobile-menu"
+      class="md:hidden hidden fixed top-16 inset-x-0 bg-background/80 shadow-md z-40"
+      style="backdrop-filter: blur(8px)"
+    >
+      <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+        <a
+          href="/"
+          class="text-foreground hover:text-primary hover:bg-secondary block px-3 py-2 rounded-md text-base font-medium"
+          >Beranda</a
+        >
+        <a
+          href="/helper"
+          class="text-foreground hover:text-primary hover:bg-secondary block px-3 py-2 rounded-md text-base font-medium"
+          >Bantuan</a
+        >
+      </div>
+    </div>
 
     <main class="p-4 md:p-8">
-        <section class="py-16 md:py-24 text-center">
-            <div class="max-w-3xl mx-auto relative z-10">
-                <h1 class="text-4xl md:text-6xl font-extrabold tracking-tighter mb-4" style="color: var(--primary);">
-                    Bantuan & FAQ
-                </h1>
-                <p class="text-lg md:text-xl text-foreground/80 mb-8 max-w-2xl mx-auto">
-                    Temukan jawaban atas pertanyaan Anda tentang membuat Invoice di Freelyce.
-                </p>
-            </div>
-        </section>
-
-        <div class="max-w-5xl mx-auto card p-6 md:p-10 fade-in">
-            <h2 class="text-2xl md:text-3xl font-bold tracking-tight mb-6">Mengapa Menggunakan Freelyce untuk membuat invoice?</h2>
-            <p class="text-foreground/80 mb-4">
-                Freelyce dirancang untuk menyederhanakan proses pembuatan invoice Anda. Dengan alat kami, Anda dapat:
-            </p>
-            <ul class="list-disc list-inside text-foreground/80 mb-6 space-y-2">
-                <li><strong>Hemat Waktu:</strong> Buat faktur profesional dalam hitungan menit, bukan jam.</li>
-                <li><strong>Profesionalisme:</strong> Hasilkan invoice PDF yang bersih dan terstruktur yang mencerminkan citra profesional bisnis Anda.</li>
-                <li><strong>Gratis & Mudah Digunakan:</strong> Tidak perlu registrasi atau biaya tersembunyi. Cukup isi detail Anda dan unduh.</li>
-                <li><strong>Kustomisasi:</strong> Tambahkan logo Anda sendiri, sesuaikan detail item, diskon, dan pajak.</li>
-                <li><strong>Aksesibilitas:</strong> Akses alat kami dari perangkat apa pun, kapan saja.</li>
-            </ul>
-
-            <h2 class="text-2xl md:text-3xl font-bold tracking-tight mb-6 mt-10">Cara Membuat Invoice dengan Freelyce</h2>
-            <ol class="list-decimal list-inside text-foreground/80 mb-6 space-y-2">
-                <li><strong>Isi Detail Perusahaan/Binis Anda:</strong> Masukkan nama dan alamat perusahaan/bisnis Anda di bagian "Dari siapa ini?".</li>
-                <li><strong>Masukkan Detail Klien:</strong> Isi nama dan alamat klien Anda di bagian "Tagih Ke".</li>
-                <li><strong>Atur Tanggal:</strong> Pilih tanggal faktur dan tanggal jatuh tempo. Anda juga bisa menambahkan Nomor PO jika diperlukan.</li>
-                <li><strong>Tambahkan Logo (Opsional):</strong> Klik "Tambah Logo" untuk mengunggah logo perusahaan Anda.</li>
-                <li><strong>Tambahkan Item Baris:</strong>
-                    <ul class="list-disc list-inside ml-5 space-y-1">
-                        <li>Masukkan deskripsi untuk setiap item atau layanan.</li>
-                        <li>Tentukan jumlah dan harga per unit.</li>
-                        <li>Total untuk setiap baris akan dihitung secara otomatis.</li>
-                        <li>Klik "+ Tambah Baris Item" untuk menambahkan lebih banyak baris.</li>
-                    </ul>
-                </li>
-                <li><strong>Sesuaikan Diskon & Pajak:</strong>
-                    <ul class="list-disc list-inside ml-5 space-y-1">
-                        <li>Masukkan nilai diskon (tetap atau persentase).</li>
-                        <li>Tentukan tarif pajak dalam persentase.</li>
-                        <li>Subtotal dan Total akan diperbarui secara real-time.</li>
-                    </ul>
-                </li>
-                <li><strong>Tambahkan Catatan (Opsional):</strong> Gunakan bagian "Catatan" untuk informasi tambahan.</li>
-                <li><strong>Unduh Invoice:</strong> Setelah semua detail terisi, klik tombol "Unduh Invoice" untuk mendapatkan faktur Anda dalam format PDF.</li>
-            </ol>
+      <section class="py-16 md:py-24 text-center">
+        <div class="max-w-3xl mx-auto relative z-10">
+          <h1
+            class="text-4xl md:text-6xl font-extrabold tracking-tighter mb-4"
+            style="color: var(--primary)"
+          >
+            Bantuan & FAQ
+          </h1>
+          <p
+            class="text-lg md:text-xl text-foreground/80 mb-8 max-w-2xl mx-auto"
+          >
+            Temukan jawaban atas pertanyaan Anda tentang membuat Invoice di
+            Freelyce.
+          </p>
         </div>
+      </section>
 
-        <footer class="text-center mt-12">
-            <p class="text-sm text-gray-500">Dibuat dengan Freelyce Invoice Generator</p>
-        </footer>
+      <div class="max-w-5xl mx-auto card p-6 md:p-10 fade-in">
+        <h2 class="text-2xl md:text-3xl font-bold tracking-tight mb-6">
+          Mengapa Menggunakan Freelyce untuk membuat invoice?
+        </h2>
+        <p class="text-foreground/80 mb-4">
+          Freelyce dirancang untuk menyederhanakan proses pembuatan invoice
+          Anda. Dengan alat kami, Anda dapat:
+        </p>
+        <ul class="list-disc list-inside text-foreground/80 mb-6 space-y-2">
+          <li>
+            <strong>Hemat Waktu:</strong> Buat faktur profesional dalam hitungan
+            menit, bukan jam.
+          </li>
+          <li>
+            <strong>Profesionalisme:</strong> Hasilkan invoice PDF yang bersih
+            dan terstruktur yang mencerminkan citra profesional bisnis Anda.
+          </li>
+          <li>
+            <strong>Gratis & Mudah Digunakan:</strong> Tidak perlu registrasi
+            atau biaya tersembunyi. Cukup isi detail Anda dan unduh.
+          </li>
+          <li>
+            <strong>Kustomisasi:</strong> Tambahkan logo Anda sendiri, sesuaikan
+            detail item, diskon, dan pajak.
+          </li>
+          <li>
+            <strong>Aksesibilitas:</strong> Akses alat kami dari perangkat apa
+            pun, kapan saja.
+          </li>
+        </ul>
+
+        <h2 class="text-2xl md:text-3xl font-bold tracking-tight mb-6 mt-10">
+          Cara Membuat Invoice dengan Freelyce
+        </h2>
+        <ol class="list-decimal list-inside text-foreground/80 mb-6 space-y-2">
+          <li>
+            <strong>Isi Detail Perusahaan/Binis Anda:</strong> Masukkan nama dan
+            alamat perusahaan/bisnis Anda di bagian "Dari siapa ini?".
+          </li>
+          <li>
+            <strong>Masukkan Detail Klien:</strong> Isi nama dan alamat klien
+            Anda di bagian "Tagih Ke".
+          </li>
+          <li>
+            <strong>Atur Tanggal:</strong> Pilih tanggal faktur dan tanggal
+            jatuh tempo. Anda juga bisa menambahkan Nomor PO jika diperlukan.
+          </li>
+          <li>
+            <strong>Tambahkan Logo (Opsional):</strong> Klik "Tambah Logo" untuk
+            mengunggah logo perusahaan Anda.
+          </li>
+          <li>
+            <strong>Tambahkan Item Baris:</strong>
+            <ul class="list-disc list-inside ml-5 space-y-1">
+              <li>Masukkan deskripsi untuk setiap item atau layanan.</li>
+              <li>Tentukan jumlah dan harga per unit.</li>
+              <li>Total untuk setiap baris akan dihitung secara otomatis.</li>
+              <li>
+                Klik "+ Tambah Baris Item" untuk menambahkan lebih banyak baris.
+              </li>
+            </ul>
+          </li>
+          <li>
+            <strong>Sesuaikan Diskon & Pajak:</strong>
+            <ul class="list-disc list-inside ml-5 space-y-1">
+              <li>Masukkan nilai diskon (tetap atau persentase).</li>
+              <li>Tentukan tarif pajak dalam persentase.</li>
+              <li>Subtotal dan Total akan diperbarui secara real-time.</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Tambahkan Catatan (Opsional):</strong> Gunakan bagian
+            "Catatan" untuk informasi tambahan.
+          </li>
+          <li>
+            <strong>Unduh Invoice:</strong> Setelah semua detail terisi, klik
+            tombol "Unduh Invoice" untuk mendapatkan faktur Anda dalam format
+            PDF.
+          </li>
+        </ol>
+      </div>
+
+      <footer class="text-center mt-12">
+        <p class="text-sm text-gray-500">
+          Dibuat dengan Freelyce Invoice Generator
+        </p>
+      </footer>
     </main>
     <script src="static/js/main.js"></script>
-</body>
+  </body>
 </html>
