@@ -125,6 +125,14 @@ document.addEventListener('DOMContentLoaded', function() {
         function addEventListenersToRow(row) {
             row.querySelector('.item-quantity').addEventListener('input', calculateTotals);
             row.querySelector('.item-rate').addEventListener('input', calculateTotals);
+
+            const removeBtn = row.querySelector('.remove-item-btn');
+            if (removeBtn) {
+                removeBtn.addEventListener('click', () => {
+                    row.remove();
+                    calculateTotals();
+                });
+            }
         }
 
         function createNewDesktopRow() {
@@ -132,16 +140,23 @@ document.addEventListener('DOMContentLoaded', function() {
             newRow.classList.add('item-row', 'border-b', 'border-border');
             newRow.innerHTML = `
                 <td class="p-2">
-                    <input type="text" placeholder="Deskripsi item/layanan..." class="item-description input bg-transparent border-0 focus:ring-0 px-0">
+                    <input type="text" placeholder="Deskripsi item/layanan..." class="item-description input bg-transparent border-0 focus:ring-0 px-0 w-full">
                 </td>
                 <td class="p-2">
-                    <input type="number" placeholder="1" class="item-quantity input text-right" value="1">
+                    <input type="number" placeholder="1" class="item-quantity input text-right w-full" value="1">
                 </td>
                 <td class="p-2">
-                    <input type="number" placeholder="0" class="item-rate input text-right" value="">
+                    <input type="number" placeholder="0" class="item-rate input text-right w-full" value="">
                 </td>
                 <td class="p-2 text-right font-medium item-amount">
                     Rp0
+                </td>
+                <td class="p-2 text-center">
+                    <button class="text-red-500 hover:text-red-700 transition-colors remove-item-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm4 0a1 1 0 012 0v6a1 1 0 11-2 0V8z" clip-rule="evenodd" />
+                        </svg>
+                    </button>
                 </td>
             `;
             addEventListenersToRow(newRow);
@@ -152,7 +167,14 @@ document.addEventListener('DOMContentLoaded', function() {
             const newRow = document.createElement('div');
             newRow.classList.add('p-4', 'border', 'border-border', 'rounded-xl', 'shadow-sm', 'item-row-mobile', 'bg-white');
             newRow.innerHTML = `
-                <label class="text-xs font-medium text-muted mb-1 block">Item</label>
+                <div class="flex justify-between items-center mb-2">
+                    <label class="text-xs font-medium text-muted">Item</label>
+                    <button class="text-red-500 hover:text-red-700 transition-colors remove-item-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm4 0a1 1 0 012 0v6a1 1 0 11-2 0V8z" clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                </div>
                 <input
                     type="text"
                     placeholder="Deskripsi item / layanan..."
